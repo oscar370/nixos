@@ -30,7 +30,7 @@ sudo nixos-rebuild switch --flake .#nixos
 
 > Compared to the default Nix configuration with GNOME.
 
-At the system level:
+**At the system level:**
 
 - Git
 - Steam
@@ -44,7 +44,7 @@ At the system level:
 - xTerm removed.
 - Extra GNOME packages uninstalled, except for tools considered essential (image and video viewer, gnome disk, gnome console, gnome text editor, etc.). Check `configuration.nix` to see the list of packages to be removed.
 
-At the user level:
+**At the user level:**
 
 - Nixd and Alejandra for autocompletion and formatting in `nix` files in IDEs
 - VS Code
@@ -55,3 +55,23 @@ At the user level:
 - PaperWM (extension)
 - AppIndicator (extension)
 - Initial DE settings were modified, such as dark mode enabled, shortcuts, and settings for PaperWM.
+
+**Aliases are also built for bash:**
+
+NixOS rebuild with flake
+`nr = “sudo nixos-rebuild --flake ~/.config/nixos switch”;`
+
+Build only the system
+`nrbuild = “sudo nixos-rebuild --flake ~/.config/nixos build”;`
+
+Rebuild and reboot with boot
+`nrboot = “sudo nixos-rebuild --flake ~/.config/nixos boot”;`
+
+Update flake.lock and rebuild
+`nrfu = “nix flake update ~/.config/nixos && sudo nixos-rebuild --flake ~/.config/nixos switch”;`
+
+Clean up old generations
+`nrclean = “sudo nix-collect-garbage -d”;`
+
+Show available generations
+`nrgens = “sudo nix-env --list-generations --profile /nix/var/nix/profiles/system”;`
