@@ -33,6 +33,7 @@ sudo nixos-rebuild switch --flake .#nixos
 **At the system level:**
 
 - Git
+- Flatpak and GNOME Software
 - Steam
 - Firefox
 - Bluetooth enabled
@@ -48,10 +49,6 @@ sudo nixos-rebuild switch --flake .#nixos
 
 - Nixd and Alejandra for autocompletion and formatting in `nix` files in IDEs
 - VS Code
-- Obsidian
-- Stremio
-- Spotify
-- ProtonPlus
 - PaperWM (extension)
 - AppIndicator (extension)
 - Initial DE settings were modified, such as dark mode enabled, shortcuts, and settings for PaperWM.

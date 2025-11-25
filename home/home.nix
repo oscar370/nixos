@@ -15,10 +15,6 @@
     nixd
     alejandra
     vscode
-    obsidian
-    stremio
-    spotify
-    protonplus
     gnomeExtensions.paperwm
     gnomeExtensions.appindicator
   ];
