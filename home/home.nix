@@ -68,7 +68,7 @@
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "Open terminal";
       command = "tgx";
-      binding = "<Super>t";
+      binding = ["<Super>t"];
     };
 
     "org/gnome/shell/extensions/paperwm/keybindings" = {
