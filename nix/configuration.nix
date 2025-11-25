@@ -85,16 +85,18 @@
   # Hardware
   hardware.bluetooth.enable = true;
 
-  # System Packages
-  environment.systemPackages = with pkgs; [
-    cloudflare-warp
-    podman
-    protontricks
-    mission-center
-  ];
-
   # Programs
   programs.appimage.enable = true;
+
+  programs.cloudflare-warp.enable = true;
+
+  programs.podman.enable = true;
+
+  programs.protontricks.enable = true;
+
+  programs.mission-center.enable = true;
+
+  programs.firefox.enable = true;
 
   programs.steam = {
     enable = true;
