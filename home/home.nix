@@ -4,6 +4,7 @@
   lib,
   ...
 }: {
+  # Replace
   home.username = "oscar";
   home.homeDirectory = "/home/oscar";
 
@@ -50,18 +51,15 @@
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      close = "<Super>q";
+      close = "['<Super>q']";
     };
 
     "org/gnome/shell/keybindings" = {
-      show-screenshot-ui = "<Shift><Super>s";
+      show-screenshot-ui = "['<Shift><Super>s']";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      home = "<Super>e";
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys" = {
+      home = "['<Super>e']";
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
       ];
@@ -69,8 +67,20 @@
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "Open terminal";
-      command = "gnome-terminal";
-      binding = "<Super>T";
+      command = "tgx";
+      binding = "<Super>t";
+    };
+
+    "org/gnome/shell/extensions/paperwm/keybindings" = {
+      take-window = "['<Super>w']";
+    };
+
+    "org/gnome/shell/extensions/paperwm" = {
+      disable-topbar-styling = "true";
+      show-focus-mode-icon = "false";
+      show-open-position-icon = "false";
+      show-window-position-bar = "false";
+      show-workspace-indicator = "false";
     };
   };
 

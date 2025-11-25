@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# setup.sh
 
 set -e
 
@@ -12,4 +11,5 @@ cp -f /etc/nixos/hardware-configuration.nix "$FLAKE_DIR/nix/hardware-configurati
 echo "Settings copied"
 
 echo "Now configure your files"
+
 echo "Then run: sudo nixos-rebuild switch --flake .#nixos"
