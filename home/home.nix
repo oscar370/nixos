@@ -7,8 +7,10 @@
   home.username = "oscar";
   home.homeDirectory = "/home/oscar";
 
+  nixpkgs.config = {allowUnfree = true;};
+
   # System Packages
-  home.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     nixd
     alejandra
     vscode
