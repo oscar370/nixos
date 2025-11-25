@@ -22,9 +22,9 @@
   # Programs
   programs.git = {
     enable = true;
-    settings = {
-      userName = "oscar370";
-      userEmail = "oscar.dga@outlook.com";
+    user = {
+      name = "oscar370";
+      email = "oscar.dga@outlook.com";
     };
   };
 
