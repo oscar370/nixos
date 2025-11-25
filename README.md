@@ -2,13 +2,13 @@
 
 Clone the repository where you have permissions (e.g.: `~/.config/nixos`).
 
-```sh
+```bash
 git clone https://github.com/oscar370/nixos.git
 ```
 
 Copy your `hardware-configuration.nix` using the script.
 
-```sh
+```bash
 chmod +x ./setupHardwareConfig.sh
 
 ./setupHardwareConfig.sh
@@ -22,7 +22,7 @@ Now configure the files to your liking.
 
 Now compile the flake.
 
-```sh
+```bash
 sudo nixos-rebuild switch --flake .#nixos
 ```
 
