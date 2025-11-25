@@ -56,19 +56,19 @@ sudo nixos-rebuild switch --flake .#nixos
 **Aliases are also built for bash:**
 
 NixOS rebuild with flake
-`nr = “sudo nixos-rebuild --flake ~/.config/nixos switch”;`
+`nr`
 
 Build only the system
-`nrbuild = “sudo nixos-rebuild --flake ~/.config/nixos build”;`
+`nrbuild `
 
 Rebuild and reboot with boot
-`nrboot = “sudo nixos-rebuild --flake ~/.config/nixos boot”;`
+`nrboot`
 
 Update flake.lock and rebuild
-`nrfu = “nix flake update ~/.config/nixos && sudo nixos-rebuild --flake ~/.config/nixos switch”;`
+`nrfu”;`
 
 Clean up old generations
-`nrclean = “sudo nix-collect-garbage -d”;`
+`nrclean`
 
 Show available generations
-`nrgens = “sudo nix-env --list-generations --profile /nix/var/nix/profiles/system”;`
+`nrgens`
