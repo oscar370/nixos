@@ -50,6 +50,7 @@ At the user level:
 - VS Code
 - Obsidian
 - Stremio
+- Spotify
 - PaperWM (extension)
 - AppIndicator (extension)
 - Initial DE settings were modified, such as dark mode enabled, shortcuts, and settings for PaperWM.

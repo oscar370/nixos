@@ -17,6 +17,7 @@
     vscode
     obsidian
     stremio
+    spotify
     gnomeExtensions.paperwm
     gnomeExtensions.appindicator
   ];
