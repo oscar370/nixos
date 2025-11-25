@@ -55,20 +55,9 @@ sudo nixos-rebuild switch --flake .#nixos
 
 **Aliases are also built for bash:**
 
-NixOS rebuild with flake
-`nr`
-
-Build only the system
-`nrbuild `
-
-Rebuild and reboot with boot
-`nrboot`
-
-Update flake.lock and rebuild
-`nrfu”;`
-
-Clean up old generations
-`nrclean`
-
-Show available generations
-`nrgens`
+- NixOS rebuild with flake: `nr`
+- Build only the system: `nrbuild `
+- Rebuild and reboot with boot: `nrboot`
+- Update flake.lock and rebuild: `nrfu`
+- Clean up old generations: `nrclean` _It will delete all except the current one_
+- Show available generations: `nrgens`
