@@ -51,6 +51,7 @@ At the user level:
 - Obsidian
 - Stremio
 - Spotify
+- ProtonPlus
 - PaperWM (extension)
 - AppIndicator (extension)
 - Initial DE settings were modified, such as dark mode enabled, shortcuts, and settings for PaperWM.
