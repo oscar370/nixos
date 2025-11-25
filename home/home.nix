@@ -22,8 +22,10 @@
   # Programs
   programs.git = {
     enable = true;
-    userName = "oscar370";
-    userEmail = "oscar.dga@outlook.com";
+    settings = {
+      userName = "oscar370";
+      userEmail = "oscar.dga@outlook.com";
+    };
   };
 
   # Bash Configuration
