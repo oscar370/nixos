@@ -38,7 +38,7 @@
 
     "org/gnome/desktop/interface" = {
       accent-color = "teal";
-      color-scheme = "prefers-dark";
+      color-scheme = "prefer-dark";
     };
 
     "org/gnome/desktop/peripherals/mouse" = {
