@@ -31,13 +31,16 @@
   };
 
   # Bash Configuration
-  programs.bash.shellAliases = {
-    nr = "sudo nixos-rebuild --flake ~/.config/nixos switch";
-    nrbuild = "sudo nixos-rebuild --flake ~/.config/nixos build";
-    nrboot = "sudo nixos-rebuild --flake ~/.config/nixos boot";
-    nrfu = "nix flake update ~/.config/nixos && sudo nixos-rebuild --flake ~/.config/nixos switch";
-    nrclean = "sudo nix-collect-garbage -d";
-    nrgens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      nr = "sudo nixos-rebuild --flake ~/.config/nixos switch";
+      nrbuild = "sudo nixos-rebuild --flake ~/.config/nixos build";
+      nrboot = "sudo nixos-rebuild --flake ~/.config/nixos boot";
+      nrfu = "nix flake update ~/.config/nixos && sudo nixos-rebuild --flake ~/.config/nixos switch";
+      nrclean = "sudo nix-collect-garbage -d";
+      nrgens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+    };
   };
 
   # GNOME Configuration
