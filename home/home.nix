@@ -76,11 +76,11 @@
     };
 
     "org/gnome/shell/extensions/paperwm" = {
-      disable-topbar-styling = "true";
-      show-focus-mode-icon = "false";
-      show-open-position-icon = "false";
-      show-window-position-bar = "false";
-      show-workspace-indicator = "false";
+      disable-topbar-styling = true;
+      show-focus-mode-icon = false;
+      show-open-position-icon = false;
+      show-window-position-bar = false;
+      show-workspace-indicator = false;
     };
   };
 
