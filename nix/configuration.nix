@@ -121,6 +121,13 @@
   virtualisation.podman.enable = true;
   virtualisation.podman.dockerCompat = true;
 
+  # Automatic garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   # State
   system.stateVersion = "25.05";
 }

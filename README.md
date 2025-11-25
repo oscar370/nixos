@@ -42,8 +42,9 @@ sudo nixos-rebuild switch --flake .#nixos
 - Syncthing
 - Cloudflare Warp
 - Virtualization with Podman enabled
-- xTerm removed.
-- Extra GNOME packages uninstalled, except for tools considered essential (image and video viewer, gnome disk, gnome console, gnome text editor, etc.). Check `configuration.nix` to see the list of packages to be removed.
+- xTerm removed
+- Automatic garbage disposal every 30 days
+- Extra GNOME packages uninstalled, except for tools considered essential (image and video viewer, gnome disk, gnome console, gnome text editor, etc.). Check `configuration.nix` to see the list of packages to be removed
 
 **At the user level:**
 
@@ -51,14 +52,13 @@ sudo nixos-rebuild switch --flake .#nixos
 - VS Code
 - PaperWM (extension)
 - AppIndicator (extension)
-- Initial DE settings were modified, such as dark mode enabled, shortcuts, and settings for PaperWM.
+- Initial DE settings were modified, such as dark mode enabled, shortcuts, and settings for PaperWM
 
 **Aliases are also built for bash:**
 
 - NixOS rebuild with flake: `nr`
 - Build only the system: `nrbuild `
 - Rebuild and reboot with boot: `nrboot`
-- Check for updates: `nrv`
 - Update flake.lock and rebuild: `nrfu`
 - Clean up old generations: `nrclean` _It will delete all except the current one_
 - Show available generations: `nrgens`
