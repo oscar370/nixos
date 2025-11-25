@@ -37,6 +37,7 @@
       nr = "sudo nixos-rebuild --flake $HOME/.config/nixos switch";
       nrbuild = "sudo nixos-rebuild --flake $HOME/.config/nixos build";
       nrboot = "sudo nixos-rebuild --flake $HOME/.config/nixos boot";
+      nrv = "nix flake update --flake $HOME/.config/nixos --dry-run";
       nrfu = "nix flake update --flake $HOME/.config/nixos && sudo nixos-rebuild --flake $HOME/.config/nixos switch";
       nrclean = "sudo nix-collect-garbage -d";
       nrgens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
