@@ -20,6 +20,12 @@ Now configure the files to your liking.
 - In `home/home.nix` you can replace the **user configuration**, home path, git configuration, user-level packages, and GNOME configuration.
 - In `nix/configuration.nix` you will find system settings such as time zone, keyboard layout, enabling services, **configuring the user**, and more. Use the `configuration.nix` created by your system as a reference if you don't know what to configure.
 
+Now compile the flake.
+
+```sh
+sudo nixos-rebuild switch --flake .#nixos
+```
+
 ## What this flake includes
 
 > Compared to the default Nix configuration with GNOME.
