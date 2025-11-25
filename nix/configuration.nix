@@ -26,7 +26,7 @@
   # Networking
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.powersave = "disable";
+  networking.networkmanager.wifi.powersave = false;
 
   # Users
   users.users.oscar = {
