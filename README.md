@@ -14,6 +14,9 @@ chmod +x ./setupHardwareConfig.sh
 ./setupHardwareConfig.sh
 ```
 
+> [INFO]
+> If you change your hardware, you have to regenerate the file with `nixos-generate-config`. You can read more [here](https://wiki.nixos.org/wiki/Nixos-generate-config).
+
 Now configure the files to your liking.
 
 - In `flake.nix` you can modify the architecture and username.
