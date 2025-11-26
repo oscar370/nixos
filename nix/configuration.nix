@@ -88,6 +88,7 @@
   # System Packages
   environment.systemPackages = with pkgs; [
     gnome-software
+    mission-center
   ];
 
   # Programs
