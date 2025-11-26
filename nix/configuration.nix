@@ -106,7 +106,6 @@
   #Services
   services.printing.enable = false;
   services.syncthing.enable = true;
-  services.cloudflare-warp.enable = true;
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
     wantedBy = ["multi-user.target"];

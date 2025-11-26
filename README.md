@@ -2,6 +2,8 @@
 
 Clone the repository where you have permissions (e.g.: `~/.config/`).
 
+> If you choose a route other than `~/.config/`, modify the alias address in `home/home.nix`.
+
 ```bash
 git clone https://github.com/oscar370/nixos.git
 ```
@@ -42,7 +44,6 @@ sudo nixos-rebuild switch --flake .#nixos
 - AppImages support
 - Printer support disabled
 - Syncthing
-- Cloudflare Warp
 - Virtualization with Podman enabled
 - xTerm removed
 - Automatic garbage disposal every 30 days
