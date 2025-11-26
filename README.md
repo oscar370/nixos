@@ -1,6 +1,6 @@
 ## Instructions
 
-Clone the repository where you have permissions (e.g.: `~/.config/nixos`).
+Clone the repository where you have permissions (e.g.: `~/.config/`).
 
 ```bash
 git clone https://github.com/oscar370/nixos.git
