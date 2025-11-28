@@ -89,6 +89,7 @@
   environment.systemPackages = with pkgs; [
     gnome-software
     mission-center
+    gettext
   ];
 
   # Programs
