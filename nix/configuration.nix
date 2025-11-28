@@ -90,7 +90,6 @@
     gnome-software
     mission-center
     notify-desktop
-    cron
   ];
 
   # Programs
@@ -106,6 +105,7 @@
   };
 
   #Services
+  services.cron.enable = true;
   services.printing.enable = false;
   services.syncthing.enable = true;
   services.flatpak.enable = true;
