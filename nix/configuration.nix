@@ -89,7 +89,8 @@
   environment.systemPackages = with pkgs; [
     gnome-software
     mission-center
-    gettext
+    notify-desktop
+    cron
   ];
 
   # Programs
