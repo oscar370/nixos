@@ -132,6 +132,10 @@
       libelf
       fribidi
       fontconfig
+      harfbuzz
+      libgpg-error
+      gmp
+      glib-networking
 
       # Required
       glib
