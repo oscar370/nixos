@@ -25,7 +25,7 @@ Now configure the files to your liking.
 Now compile the flake.
 
 ```bash
-sudo nixos-rebuild switch --flake .#nixos
+sudo nixos-rebuild switch --flake ~/.config/nixos
 ```
 
 ## What this flake includes
