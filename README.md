@@ -40,6 +40,7 @@ sudo nixos-rebuild switch --flake ~/.config/nixos
 - Firefox
 - Bluetooth enabled
 - AppImages support
+- Nix-ld with the list provided [here](https://wiki.nixos.org/wiki/Nix-ld).
 - Printer support disabled
 - Syncthing
 - Virtualization with Podman enabled
