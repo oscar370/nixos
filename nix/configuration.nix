@@ -94,8 +94,16 @@
 
   # Programs
   programs.appimage.enable = true;
-  programs.nix-ld.enable = true;
   programs.firefox.enable = true;
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    glib
+    gtk3
+    pango
+    cairo
+    gdk-pixbuf
+  ];
 
   programs.steam = {
     enable = true;
