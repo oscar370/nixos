@@ -94,7 +94,7 @@
 
   # Programs
   programs.appimage.enable = true;
-
+  programs.nix-ld.enable = true;
   programs.firefox.enable = true;
 
   programs.steam = {

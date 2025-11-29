@@ -11,8 +11,6 @@ git clone https://github.com/oscar370/nixos.git
 Copy your `hardware-configuration.nix` using the script.
 
 ```bash
-chmod +x ./setupHardwareConfig.sh
-
 ./setupHardwareConfig.sh
 ```
 
