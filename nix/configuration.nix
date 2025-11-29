@@ -100,6 +100,7 @@
   programs.nix-ld.libraries = with pkgs; [
     glib
     fribidi
+    fontconfig
   ];
 
   programs.steam = {
