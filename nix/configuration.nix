@@ -27,6 +27,8 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
+  networking.networkmanager.dns = "none";
+  networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
   # Users
   users.users.oscar = {
@@ -90,6 +92,9 @@
     gnome-software
     mission-center
     notify-desktop
+    inetutils
+    traceroute
+    bind
   ];
 
   # Programs
