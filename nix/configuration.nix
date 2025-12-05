@@ -12,7 +12,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
-    "video=HDMI-A-1:1920x1080@70"
+    "video=HDMI-A-2:1920x1080@70"
   ];
 
   # Localization
