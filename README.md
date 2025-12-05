@@ -8,6 +8,8 @@ Clone the repository where you have permissions (e.g.: `~/.config/`).
 git clone https://github.com/oscar370/nixos.git
 ```
 
+> Or fork this repository, and clone your fork if you want to stay in sync with GitHub.
+
 Copy your `hardware-configuration.nix` using the script.
 
 ```bash
