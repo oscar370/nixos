@@ -34,6 +34,8 @@ sudo nixos-rebuild switch --flake ~/.config/nixos
 
 **At the system level:**
 
+- Custom resolution in kernel params
+- Zram
 - Git
 - Flatpak and GNOME Software
 - Steam

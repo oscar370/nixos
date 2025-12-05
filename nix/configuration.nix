@@ -11,6 +11,9 @@
   # Boot
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [
+    "video=HDMI-A-1:1920x1080@70"
+  ];
 
   # Localization
   time.timeZone = "America/Mexico_City";
@@ -27,7 +30,6 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
-  networking.networkmanager.dns = "none";
   networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
   # Users
@@ -87,14 +89,14 @@
   # Hardware
   hardware.bluetooth.enable = true;
 
+  # Zram
+  zramSwap.enable = true;
+
   # System Packages
   environment.systemPackages = with pkgs; [
     gnome-software
     mission-center
     notify-desktop
-    inetutils
-    traceroute
-    bind
   ];
 
   # Programs
