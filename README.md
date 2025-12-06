@@ -36,7 +36,7 @@ sudo nixos-rebuild switch --flake ~/.config/nixos
 
 **At the system level:**
 
-- Custom resolution in kernel params
+- Custom resolution in kernel params **Remove or modify this in `configuration.nix`, the resolution may be incompatible with your system, or it may point to the wrong video adapter on your system**
 - Zram
 - Git
 - Flatpak and GNOME Software
