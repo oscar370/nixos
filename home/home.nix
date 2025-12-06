@@ -27,6 +27,8 @@
         name = "oscar370";
         email = "oscar.dga@outlook.com";
       };
+
+      core.sshCommand = "false";
     };
   };
 
