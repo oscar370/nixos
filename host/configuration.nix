@@ -3,12 +3,8 @@
   pkgs,
   ...
 }: {
-  # Imports
-  imports = [
-    ./hardware-configuration.nix
-  ];
-
   # Boot
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
@@ -46,32 +42,7 @@
 
   # Desktop / X11
   services.xserver.enable = true;
-
-  # GNOME
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
-  # Remove GNOME apps
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    gnome-contacts
-    gnome-clocks
-    gnome-weather
-    gnome-maps
-    snapshot
-    simple-scan
-    gnome-characters
-    gnome-connections
-    gnome-font-viewer
-    decibels
-    baobab
-    gnome-system-monitor
-    geary
-    gnome-calendar
-    gnome-music
-    epiphany
-    seahorse
-  ];
+  desktop = "cosmic";
 
   # Remove XTerm
   services.xserver.excludePackages = with pkgs; [xterm];
@@ -89,6 +60,7 @@
 
   # Hardware
   hardware.bluetooth.enable = true;
+  hardware.amdgpu.overdrive.enable = true;
 
   # Zram
   zramSwap.enable = true;
@@ -265,6 +237,7 @@
   services.cron.enable = true;
   services.printing.enable = false;
   services.syncthing.enable = true;
+  services.lact.enable = true;
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
     wantedBy = ["multi-user.target"];

@@ -17,7 +17,10 @@
       # Replace with you arch
       system = "x86_64-linux";
       modules = [
-        ./nix/configuration.nix
+        ./host/configuration.nix
+        ./host/hardware-configuration.nix
+        ./modules/host/desktop
+        ./modules/config/options.nix
 
         home-manager.nixosModules.home-manager
         {
