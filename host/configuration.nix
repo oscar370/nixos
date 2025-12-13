@@ -82,6 +82,13 @@
   programs.appimage.enable = true;
   programs.firefox.enable = true;
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
+
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
@@ -230,13 +237,6 @@
       fuse
       e2fsprogs
     ];
-  };
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
   };
 
   #Services
