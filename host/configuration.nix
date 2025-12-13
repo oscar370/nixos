@@ -11,6 +11,19 @@
     "video=HDMI-A-2:1920x1080@70"
   ];
 
+  # Desktop / X11
+  services.xserver.enable = true;
+  imports = [
+    /*
+    ../modules/host/desktop/cosmic.nix
+    */
+
+    ../modules/host/desktop/gnome.nix
+  ];
+
+  # Remove XTerm
+  services.xserver.excludePackages = with pkgs; [xterm];
+
   # Localization
   time.timeZone = "America/Mexico_City";
   i18n.defaultLocale = "es_MX.UTF-8";
@@ -39,18 +52,6 @@
   # Nix
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # Desktop / X11
-  services.xserver.enable = true;
-  imports = [
-    ../modules/host/desktop/cosmic.nix
-    /*
-    ../modules/host/desktop/gnome.nix
-    */
-  ];
-
-  # Remove XTerm
-  services.xserver.excludePackages = with pkgs; [xterm];
 
   # Audio
   services.pulseaudio.enable = false;

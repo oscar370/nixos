@@ -6,10 +6,11 @@
 }: {
   # Imports
   imports = [
-    ../modules/home/desktop/cosmic.nix
     /*
-    ../modules/home/desktop/gnome.nix
+    ../modules/home/desktop/cosmic.nix
     */
+
+    ../modules/home/desktop/gnome.nix
   ];
 
   # Replace
@@ -54,63 +55,31 @@
     };
   };
 
-  # GNOME Configuration
-  dconf.settings = {
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = with pkgs.gnomeExtensions; [
-        paperwm.extensionUuid
-        appindicator.extensionUuid
-        user-themes.extensionUuid
-      ];
-    };
+  # GNOME
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
-    "org/gnome/desktop/interface" = {
-      accent-color = "teal";
-      color-scheme = "prefer-dark";
-    };
-
-    "org/gnome/desktop/peripherals/mouse" = {
-      accel-profile = "flat";
-    };
-
-    "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-type = "nothing";
-    };
-
-    "org/gnome/desktop/wm/keybindings" = {
-      close = ["<Super>q"];
-    };
-
-    "org/gnome/shell/keybindings" = {
-      show-screenshot-ui = ["<Shift><Super>s"];
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys" = {
-      home = ["<Super>e"];
-      custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-      ];
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      name = "Open terminal";
-      command = "kgx";
-      binding = "<Super>t";
-    };
-
-    "org/gnome/shell/extensions/paperwm/keybindings" = {
-      take-window = ["<Super>w"];
-    };
-
-    "org/gnome/shell/extensions/paperwm" = {
-      disable-topbar-styling = true;
-      show-focus-mode-icon = false;
-      show-open-position-icon = false;
-      show-window-position-bar = false;
-      show-workspace-indicator = false;
-    };
-  };
+  # Remove GNOME apps
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-tour
+    gnome-contacts
+    gnome-clocks
+    gnome-weather
+    gnome-maps
+    snapshot
+    simple-scan
+    gnome-characters
+    gnome-connections
+    gnome-font-viewer
+    decibels
+    baobab
+    gnome-system-monitor
+    geary
+    gnome-calendar
+    gnome-music
+    epiphany
+    seahorse
+  ];
 
   home.stateVersion = "25.05";
 }
