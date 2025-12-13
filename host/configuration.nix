@@ -42,7 +42,12 @@
 
   # Desktop / X11
   services.xserver.enable = true;
-  desktop = "cosmic";
+  imports = [
+    ../modules/host/desktop/cosmic.nix
+    /*
+    ../modules/host/desktop/gnome.nix
+    */
+  ];
 
   # Remove XTerm
   services.xserver.excludePackages = with pkgs; [xterm];

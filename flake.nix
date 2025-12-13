@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   description = "My NixOS configuration";
 
   inputs = {
@@ -19,11 +19,12 @@
       modules = [
         ./host/configuration.nix
         ./host/hardware-configuration.nix
-        ./modules/host/desktop
-        ./modules/config/options.nix
 
         home-manager.nixosModules.home-manager
         {
+          home-manager.extraSpecialArgs = {
+            inherit (config) desktop;
+          };
           # Replace username
           home-manager.users.oscar = import ./home/home.nix;
         }

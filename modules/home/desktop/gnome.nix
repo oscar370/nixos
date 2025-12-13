@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-lib.mkIf (config.desktop == "gnome") {
+}: {
   # User Packages
   home.packages = with pkgs; [
     gnomeExtensions.paperwm

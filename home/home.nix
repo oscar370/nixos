@@ -6,7 +6,10 @@
 }: {
   # Imports
   imports = [
-    ../modules/home/desktop
+    ../modules/home/desktop/cosmic.nix
+    /*
+    ../modules/home/desktop/gnome.nix
+    */
   ];
 
   # Replace
