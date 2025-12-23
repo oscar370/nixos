@@ -17,19 +17,20 @@
   home.username = "oscar";
   home.homeDirectory = "/home/oscar";
 
-  nixpkgs.config = {allowUnfree = true;};
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+  };
 
   # User Packages
   home.packages = with pkgs; [
     nixd
     alejandra
     vscode
-    gnomeExtensions.paperwm
-    gnomeExtensions.appindicator
-    gnomeExtensions.user-themes
   ];
 
   # Programs
+  programs.home-manager.enable = true;
   programs.git = {
     enable = true;
     settings = {
@@ -37,8 +38,6 @@
         name = "oscar370";
         email = "oscar.dga@outlook.com";
       };
-
-      core.sshCommand = "false";
     };
   };
 
@@ -46,12 +45,10 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      nr = "sudo nixos-rebuild --flake ~/.config/nixos switch";
-      nrbuild = "sudo nixos-rebuild --flake ~/.config/nixos build";
-      nrboot = "sudo nixos-rebuild --flake ~/.config/nixos boot";
-      nrfu = "nix flake update --flake ~/.config/nixos && sudo nixos-rebuild --flake ~/.config/nixos switch";
-      nrclean = "sudo nix-collect-garbage -d";
-      nrgens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+      nixos-rebuild-switch = "sudo nixos-rebuild --flake ~/.config/nixos switch";
+      nixos-rebuild-update = "nix flake update --flake ~/.config/nixos && sudo nixos-rebuild --flake ~/.config/nixos switch";
+      nixos-cleanup = "sudo nix-collect-garbage -d";
+      nixos-list-generations = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
     };
   };
 

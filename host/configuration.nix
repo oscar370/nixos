@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   ...
 }: {
@@ -39,7 +40,11 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
+
+  # DNS config
   networking.networkmanager.dns = "none";
+  networking.useDHCP = false;
+  networking.dhcpcd.enable = false;
   networking.nameservers = ["1.1.1.1" "8.8.8.8"];
 
   # Users
@@ -76,12 +81,11 @@
     gnome-software
     mission-center
     notify-desktop
+    google-chrome
   ];
 
   # Programs
   programs.appimage.enable = true;
-  programs.firefox.enable = true;
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -89,6 +93,39 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
+  #Services
+  services.printing.enable = false;
+  services.openssh.enable = false;
+  services.cron.enable = true;
+  services.syncthing.enable = true;
+  services.lact.enable = true;
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = ["multi-user.target"];
+    after = ["network-online.target"];
+    wants = ["network-online.target"];
+    path = [pkgs.flatpak];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
+  # Virtualization
+  virtualisation.podman.enable = true;
+  virtualisation.podman.dockerCompat = true;
+
+  # Automatic garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  # Optimize Store
+  nix.optimise.automatic = true;
+  nix.optimise.dates = ["weekly"];
+
+  # Nix-ld config
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
@@ -237,33 +274,6 @@
       fuse
       e2fsprogs
     ];
-  };
-
-  #Services
-  services.cron.enable = true;
-  services.printing.enable = false;
-  services.syncthing.enable = true;
-  services.lact.enable = true;
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = ["multi-user.target"];
-    after = ["network-online.target"];
-    wants = ["network-online.target"];
-    path = [pkgs.flatpak];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
-
-  # Virtualization
-  virtualisation.podman.enable = true;
-  virtualisation.podman.dockerCompat = true;
-
-  # Automatic garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
   };
 
   # State
