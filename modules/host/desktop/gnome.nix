@@ -8,6 +8,11 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
+  # Install programs
+  environment.systemPackages = with pkgs; [
+    gnome-tweaks
+  ];
+
   # Remove GNOME apps
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
