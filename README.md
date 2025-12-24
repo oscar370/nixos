@@ -43,7 +43,6 @@ The same logic applies to user modules, but they are managed from `home.nix`.
 - Zram
 - Git
 - Flatpak and GNOME Software
-- Steam
 - Chrome
 - Bluetooth enabled
 - AppImages support

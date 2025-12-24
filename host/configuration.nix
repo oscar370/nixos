@@ -86,16 +86,10 @@
 
   # Programs
   programs.appimage.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
+  programs.ssh.enableAskPassword = false;
 
   #Services
   services.printing.enable = false;
-  services.openssh.enable = false;
   services.cron.enable = true;
   services.syncthing.enable = true;
   services.lact.enable = true;
