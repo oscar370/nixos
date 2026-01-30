@@ -9,7 +9,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
-    "video=HDMI-A-2:1920x1080@70"
+    "video=HDMI-A-2:1920x1080@73"
   ];
 
   # Desktop / X11
@@ -87,11 +87,18 @@
   # Programs
   programs.appimage.enable = true;
   programs.ssh.enableAskPassword = false;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; 
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
 
   #Services
   services.printing.enable = false;
   services.cron.enable = true;
   services.syncthing.enable = true;
+  services.cloudflare-warp.enable = true;
   services.lact.enable = true;
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {

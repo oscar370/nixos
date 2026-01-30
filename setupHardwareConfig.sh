@@ -12,4 +12,4 @@ echo "Settings copied"
 
 echo "Now configure your files"
 
-echo "Then run: sudo nixos-rebuild switch --flake .#nixos"
+echo "Then run: sudo nixos-rebuild switch --flake ~/.config/nixos"
