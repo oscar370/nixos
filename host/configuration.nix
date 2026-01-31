@@ -8,6 +8,9 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 10;
+  };
   boot.kernelParams = [
     "video=HDMI-A-2:1920x1080@73"
   ];
@@ -81,7 +84,6 @@
     gnome-software
     mission-center
     notify-desktop
-    google-chrome
   ];
 
   # Programs
@@ -89,17 +91,24 @@
   programs.ssh.enableAskPassword = false;
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; 
+    remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
   };
+  programs.firefox.enable = true;
 
   #Services
   services.printing.enable = false;
   services.cron.enable = true;
-  services.syncthing.enable = true;
   services.cloudflare-warp.enable = true;
   services.lact.enable = true;
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    user = "oscar";
+    group = "users";
+    configDir = "/home/oscar/.config/syncthing";
+  };
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
     wantedBy = ["multi-user.target"];
@@ -223,7 +232,7 @@
       libvorbis
       SDL
       SDL2_image
-      glew110
+      glew_1_10
       libidn
       tbb
 
