@@ -84,6 +84,8 @@
     gnome-software
     mission-center
     notify-desktop
+    nodejs
+    pnpm
   ];
 
   # Programs
