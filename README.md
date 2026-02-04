@@ -43,7 +43,9 @@ The same logic applies to user modules, but they are managed from `home.nix`.
 - Zram
 - Git
 - Flatpak and GNOME Software
+- Firefox
 - Chrome
+- Cloudflare WARP
 - Bluetooth enabled
 - AppImages support
 - Nix-ld with the list provided [here](https://wiki.nixos.org/wiki/Nix-ld).
