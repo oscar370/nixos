@@ -31,41 +31,7 @@ For example, `modules/host/desktop` includes the configurations for each desktop
 In `configuration.nix`, remove the desktop environments you do not want to install and add the ones you do.
 The same logic applies to user modules, but they are managed from `home.nix`.
 
-## What this flake includes
-
-> Compared to the default Nix configuration with GNOME.
-
-**At the system level:**
-
-- Zen kernel
-- Custom resolution in kernel params
-  > **Remove or modify this in `configuration.nix`, the resolution may be incompatible with your system, or it may point to the wrong video adapter on your system**
-- Zram
-- Git
-- Flatpak and GNOME Software
-- Firefox
-- Chrome
-- Cloudflare WARP
-- Bluetooth enabled
-- AppImages support
-- Nix-ld with the list provided [here](https://wiki.nixos.org/wiki/Nix-ld).
-- Printer support disabled
-- Syncthing
-- Virtualization with Podman enabled
-- xTerm removed
-- Automatic garbage disposal every 30 days
-- Store optimized
-- Extra GNOME packages uninstalled, except for tools considered essential (image and video viewer, gnome disk, gnome console, gnome text editor, etc.). Check `configuration.nix` to see the list of packages to be removed
-- Extra module with Cosmic DE, _disabled by default_. You can use it as a reference to add more modules.
-
-**At the user level:**
-
-- Nixd and Alejandra for autocompletion and formatting in `nix` files in IDEs
-- VS Code
-- PaperWM (extension)
-- AppIndicator (extension)
-- Initial DE settings were modified, such as dark mode enabled, shortcuts, and settings for PaperWM
-- Extra module for Cosmic DE, _disabled by default_. You can use it as a reference to add more modules.
+---
 
 **Aliases are also built for bash:**
 

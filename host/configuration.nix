@@ -8,6 +8,7 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.kernelModules = ["amdgpu"];
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;
   };
@@ -64,7 +65,6 @@
   # Audio
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -84,8 +84,6 @@
     gnome-software
     mission-center
     notify-desktop
-    nodejs
-    pnpm
   ];
 
   # Programs
