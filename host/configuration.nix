@@ -8,7 +8,6 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.kernelModules = ["amdgpu"];
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;
   };
@@ -89,32 +88,6 @@
   # Programs
   programs.appimage.enable = true;
   programs.ssh.enableAskPassword = false;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-  programs.firefox.enable = true;
-  programs.obs-studio = {
-    enable = true;
-
-    # optional Nvidia hardware acceleration
-    # package = (
-    #  pkgs.obs-studio.override {
-    #    cudaSupport = true;
-    #  }
-    # );
-
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs
-      obs-backgroundremoval
-      obs-pipewire-audio-capture
-      obs-vaapi
-      obs-gstreamer
-      obs-vkcapture
-    ];
-  };
 
   #Services
   services.printing.enable = false;
@@ -140,8 +113,14 @@
   };
 
   # Virtualization
-  virtualisation.podman.enable = true;
-  virtualisation.podman.dockerCompat = true;
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
 
   # Automatic garbage collection
   nix.gc = {
