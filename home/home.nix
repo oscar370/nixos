@@ -26,6 +26,7 @@
   home.packages = with pkgs; [
     nixd
     alejandra
+    vscode
   ];
 
   # Programs
