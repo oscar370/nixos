@@ -6,7 +6,17 @@
       User = "root";
     };
     script = ''
-      ${pkgs.libnotify}/bin/notify-send "¡Aviso de Apagado!" "El sistema se apagará automáticamente en 5 minutos" --urgency=critical --icon=system-shutdown
+      for user_dir in /run/user/*; do
+        uid=$(basename $user_dir)
+        if [ -S "$user_dir/bus" ]; then
+          ${pkgs.sudo}/bin/sudo -u "#$uid" \
+            DBUS_SESSION_BUS_ADDRESS="unix:path=$user_dir/bus" \
+            ${pkgs.libnotify}/bin/notify-send "¡Aviso de Apagado!" \
+            "El sistema se apagará automáticamente en 5 minutos. Guarda tu trabajo." \
+            --urgency=critical \
+            --icon=system-shutdown
+        fi
+      done
 
       ${pkgs.systemd}/bin/shutdown +5 "Apagado programado por el sistema (22:30)"
     '';
