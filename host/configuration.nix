@@ -81,7 +81,6 @@
   environment.systemPackages = with pkgs; [
     mission-center
     podman-compose
-    protonplus
   ];
 
   # Programs
@@ -93,6 +92,9 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     protontricks.enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
   };
 
   # Services
