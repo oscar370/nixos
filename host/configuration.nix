@@ -86,6 +86,15 @@
   # Programs
   programs.ssh.enableAskPassword = false;
   programs.firefox.enable = true;
+  programs.gamemode.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
 
   # Services
   services.printing.enable = false;
