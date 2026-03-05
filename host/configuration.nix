@@ -21,6 +21,7 @@
     # ../modules/host/desktop/cosmic.nix
     ../modules/host/desktop/gnome.nix
     ../modules/host/services/timers.nix
+    ../modules/host/programs/nix-ld.nix
   ];
 
   # Remove XTerm
