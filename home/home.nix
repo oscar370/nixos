@@ -6,10 +6,7 @@
 }: {
   # Imports
   imports = [
-    /*
-    ../modules/home/desktop/cosmic.nix
-    */
-
+    # ../modules/home/desktop/cosmic.nix
     ../modules/home/desktop/gnome.nix
   ];
 
@@ -17,8 +14,8 @@
   home.username = "oscar";
   home.homeDirectory = "/home/oscar";
 
-  # Sometimes your user directories (Downloads, Documents, etc.) 
-  # are not configured by default. 
+  # Sometimes your user directories (Downloads, Documents, etc.)
+  # are not configured by default.
   # If this is the case, remove the comments.
   #
   # xdg.userDirs = {
@@ -28,7 +25,7 @@
 
   # User Packages
   home.packages = with pkgs; [
-    nixd
+    nil
     alejandra
     vscode
     spotify

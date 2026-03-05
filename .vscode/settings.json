@@ -1,8 +1,8 @@
 {
   "nix.enableLanguageServer": true,
-  "nix.serverPath": "nixd",
+  "nix.serverPath": "nil",
   "nix.serverSettings": {
-    "nixd": {
+    "nil": {
       "formatting": {
         "command": ["alejandra"]
       }

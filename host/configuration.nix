@@ -18,10 +18,7 @@
   # Desktop / X11
   services.xserver.enable = true;
   imports = [
-    /*
-    ../modules/host/desktop/cosmic.nix
-    */
-
+    # ../modules/host/desktop/cosmic.nix
     ../modules/host/desktop/gnome.nix
   ];
 
@@ -82,7 +79,6 @@
   # System Packages
   environment.systemPackages = with pkgs; [
     mission-center
-    notify-desktop
     podman-compose
   ];
 
@@ -92,9 +88,6 @@
 
   # Services
   services.printing.enable = false;
-  services.cron.enable = true;
-  # Configure Warp: https://developers.cloudflare.com/warp-client/get-started/linux/#initial-connection
-  services.cloudflare-warp.enable = true;
   services.lact.enable = true;
   services.syncthing = {
     enable = true;
@@ -110,7 +103,7 @@
     rootless = {
       enable = true;
       setSocketVariable = true;
-  };
+    };
   };
 
   # Automatic garbage collection
