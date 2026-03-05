@@ -54,7 +54,7 @@
   users.users.oscar = {
     isNormalUser = true;
     description = "Oscar";
-    extraGroups = ["networkmanager" "wheel" "podman"]; # Remove Podman if you also remove its configuration later
+    extraGroups = ["networkmanager" "wheel" "docker"]; # Remove docker if you also remove its configuration later
   };
 
   # Nix
@@ -105,16 +105,12 @@
   };
 
   # Podman
-  virtualisation = {
-    containers = {
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
       enable = true;
-      registries.search = ["docker.io"];
-    };
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
+      setSocketVariable = true;
+  };
   };
 
   # Automatic garbage collection
