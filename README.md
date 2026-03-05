@@ -1,11 +1,28 @@
-## Instructions
+## Install
 
-- Clone or fork the repository to `~/.config/`.
-- Run script `setupHardwareConfig.sh` to copy your hardware configuration.
-- Configure the files to your liking (username, packages, etc.).
-- Compile the flake with `sudo nixos-rebuild switch --flake ~/.config/nixos`.
+### Clone or fork the repository to `~/.config/`
 
-> If you change your hardware, you have to regenerate the file with `nixos-generate-config`. You can read more [here](https://wiki.nixos.org/wiki/Nixos-generate-config).
+```bash
+git clone https://github.com/oscar370/nixos.git ~/.config/nixos && cd ~/.config/nixos
+```
+
+### Run script `setupHardwareConfig.sh` to copy your hardware configuration
+
+```bash
+chmod +x ./setupHardwareConfig.sh && ./setupHardwareConfig.sh
+```
+
+> If you change your hardware (including changing the mounting of external drives), you have to regenerate the file with `sudo nixos-generate-config`. You can read more [here](https://wiki.nixos.org/wiki/Nixos-generate-config).
+
+### Configure the files to your liking (username, packages, etc.)
+
+Check out the [Config section](#config) to learn about the folder structure.
+
+### Compile the flake
+
+```bash
+sudo nixos-rebuild switch --flake ~/.config/nixos
+```
 
 ## Config
 

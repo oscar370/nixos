@@ -17,16 +17,22 @@
   home.username = "oscar";
   home.homeDirectory = "/home/oscar";
 
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
-  };
+  # Sometimes your user directories (Downloads, Documents, etc.) 
+  # are not configured by default. 
+  # If this is the case, remove the comments.
+  #
+  # xdg.userDirs = {
+  #   enable = true;
+  #   createDirectories = true;
+  # };
 
   # User Packages
   home.packages = with pkgs; [
     nixd
     alejandra
     vscode
+    spotify
+    obsidian
   ];
 
   # Programs
