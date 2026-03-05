@@ -20,6 +20,7 @@
   imports = [
     # ../modules/host/desktop/cosmic.nix
     ../modules/host/desktop/gnome.nix
+    ../modules/host/services/timers.nix
   ];
 
   # Remove XTerm
