@@ -21,7 +21,6 @@
     # ../modules/host/desktop/cosmic.nix
     ../modules/host/desktop/gnome.nix
     ../modules/host/services/timers.nix
-    ../modules/host/programs/nix-ld.nix
   ];
 
   # Remove XTerm
@@ -82,6 +81,7 @@
   environment.systemPackages = with pkgs; [
     mission-center
     podman-compose
+    protonplus
   ];
 
   # Programs
@@ -92,9 +92,7 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
+    protontricks.enable = true;
   };
 
   # Services
