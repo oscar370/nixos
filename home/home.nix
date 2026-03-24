@@ -27,9 +27,6 @@
   home.packages = with pkgs; [
     nil
     alejandra
-    vscode
-    spotify
-    obsidian
   ];
 
   # Programs

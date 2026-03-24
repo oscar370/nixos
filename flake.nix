@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,17 +17,18 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux"; # Replace with you arch
       modules = [
-        ./host/configuration.nix
-        ./host/hardware-configuration.nix
-
+        nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.home-manager
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.oscar = ./home/home.nix; # replace `oscar` with your actual username
+            users.oscar = ./home/home.nix; # replace with your actual username
           };
         }
+
+        ./host/configuration.nix
+        ./host/hardware-configuration.nix        
       ];
     };
   };

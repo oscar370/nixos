@@ -20,7 +20,7 @@
   imports = [
     # ../modules/host/desktop/cosmic.nix
     ../modules/host/desktop/gnome.nix
-    ../modules/host/services/timers.nix
+    # ../modules/host/services/timers.nix
   ];
 
   # Remove XTerm
@@ -52,7 +52,7 @@
   users.users.oscar = {
     isNormalUser = true;
     description = "Oscar";
-    extraGroups = ["networkmanager" "wheel" "docker"]; # Remove docker if you also remove its configuration later
+    extraGroups = ["networkmanager" "wheel"]; 
   };
 
   # Nix
@@ -79,23 +79,12 @@
 
   # System Packages
   environment.systemPackages = with pkgs; [
-    mission-center
-    podman-compose
+    gnome-software
   ];
 
   # Programs
   programs.ssh.enableAskPassword = false;
-  programs.firefox.enable = true;
   programs.gamemode.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    protontricks.enable = true;
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
-  };
 
   # Services
   services.printing.enable = false;
@@ -107,14 +96,13 @@
     group = "users";
     configDir = "/home/oscar/.config/syncthing";
   };
-
-  # Podman
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    '';
   };
 
   # Automatic garbage collection
