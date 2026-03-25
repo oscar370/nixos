@@ -79,12 +79,13 @@
 
   # System Packages
   environment.systemPackages = with pkgs; [
-    gnome-software
+    
   ];
 
   # Programs
   programs.ssh.enableAskPassword = false;
   programs.gamemode.enable = true;
+  programs.firefox.enable = true;
 
   # Services
   services.printing.enable = false;
@@ -95,14 +96,6 @@
     user = "oscar";
     group = "users";
     configDir = "/home/oscar/.config/syncthing";
-  };
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    '';
   };
 
   # Automatic garbage collection
