@@ -26,6 +26,7 @@
 
   # User Packages
   home.packages = with pkgs; [
+    nil
     nixfmt
     vscode
     obsidian
