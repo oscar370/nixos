@@ -17,7 +17,6 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux"; # Replace with you arch
       modules = [
-        nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.home-manager
         {
           home-manager = {
