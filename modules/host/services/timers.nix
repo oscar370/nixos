@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   systemd.services.scheduled-shutdown-warn = {
     description = "Notifica y programa el apagado del sistema";
     serviceConfig = {
@@ -29,6 +30,6 @@
       Persistent = true;
       Unit = "scheduled-shutdown-warn.service";
     };
-    wantedBy = ["timers.target"];
+    wantedBy = [ "timers.target" ];
   };
 }

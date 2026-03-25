@@ -3,7 +3,8 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   # Boot
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
@@ -15,6 +16,9 @@
     "video=HDMI-A-2:1920x1080@73"
   ];
 
+  # Zram
+  zramSwap.enable = true;
+
   # Desktop / X11
   services.xserver.enable = true;
   imports = [
@@ -24,7 +28,7 @@
   ];
 
   # Remove XTerm
-  services.xserver.excludePackages = with pkgs; [xterm];
+  services.xserver.excludePackages = with pkgs; [ xterm ];
 
   # Localization
   time.timeZone = "America/Mexico_City";
@@ -44,20 +48,28 @@
 
   # DNS config
   networking.networkmanager.dns = "none";
-  networking.useDHCP = false;
-  networking.dhcpcd.enable = false;
-  networking.nameservers = ["1.1.1.1" "8.8.8.8"];
+  networking.nameservers = [
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
 
   # Users
   users.users.oscar = {
     isNormalUser = true;
     description = "Oscar";
-    extraGroups = ["networkmanager" "wheel"]; 
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "podman"
+    ];
   };
 
   # Nix
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Audio
   services.pulseaudio.enable = false;
@@ -74,18 +86,25 @@
   # Enable overclocking on AMD
   hardware.amdgpu.overdrive.enable = true;
 
-  # Zram
-  zramSwap.enable = true;
-
   # System Packages
   environment.systemPackages = with pkgs; [
-    
+    podman-compose
+    mission-center
   ];
 
   # Programs
   programs.ssh.enableAskPassword = false;
   programs.gamemode.enable = true;
   programs.firefox.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+    protontricks.enable = true;
+  };
 
   # Services
   services.printing.enable = false;
@@ -98,6 +117,19 @@
     configDir = "/home/oscar/.config/syncthing";
   };
 
+  # Virtualization
+  virtualisation = {
+    containers = {
+      enable = true;
+      registries.search = [ "docker.io" ];
+    };
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   # Automatic garbage collection
   nix.gc = {
     automatic = true;
@@ -107,7 +139,7 @@
 
   # Optimize Store
   nix.optimise.automatic = true;
-  nix.optimise.dates = ["weekly"];
+  nix.optimise.dates = [ "weekly" ];
 
   # AppImages config
   programs.appimage = {

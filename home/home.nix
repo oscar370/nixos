@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   # Imports
   imports = [
     # ../modules/home/desktop/cosmic.nix
@@ -25,9 +26,9 @@
 
   # User Packages
   home.packages = with pkgs; [
-    nil
-    nixd
+    nixfmt
     vscode
+    obsidian
   ];
 
   # Programs

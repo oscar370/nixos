@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   # User Packages
   home.packages = with pkgs; [
     # gnomeExtensions.paperwm
@@ -36,15 +37,15 @@
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      close = ["<Super>q"];
+      close = [ "<Super>q" ];
     };
 
     "org/gnome/shell/keybindings" = {
-      show-screenshot-ui = ["<Shift><Super>s"];
+      show-screenshot-ui = [ "<Shift><Super>s" ];
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      home = ["<Super>e"];
+      home = [ "<Super>e" ];
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
       ];
@@ -57,7 +58,7 @@
     };
 
     "org/gnome/shell/extensions/paperwm/keybindings" = {
-      take-window = ["<Super>w"];
+      take-window = [ "<Super>w" ];
     };
 
     # "org/gnome/shell/extensions/paperwm" = {
