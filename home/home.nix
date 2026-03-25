@@ -26,7 +26,8 @@
   # User Packages
   home.packages = with pkgs; [
     nil
-    alejandra
+    nixd
+    vscode
   ];
 
   # Programs
