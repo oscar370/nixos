@@ -12,6 +12,7 @@
   # Install programs
   environment.systemPackages = with pkgs; [
     gnome-tweaks
+    sushi
   ];
 
   # Remove GNOME apps
