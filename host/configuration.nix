@@ -19,12 +19,20 @@
   # Zram
   zramSwap.enable = true;
 
+  # Nix
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # Desktop / X11
   services.xserver.enable = true;
   imports = [
     # ../modules/host/desktop/cosmic.nix
     ../modules/host/desktop/gnome.nix
-    # ../modules/host/services/timers.nix
+    ../modules/host/services/timers.nix
+    ../modules/host/programs/nix-ld.nix
   ];
 
   # Remove XTerm
@@ -63,13 +71,6 @@
       "docker"
     ];
   };
-
-  # Nix
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
 
   # Audio
   services.pulseaudio.enable = false;
