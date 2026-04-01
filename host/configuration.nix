@@ -108,12 +108,24 @@
   };
 
   services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    '';
+  services.flatpak.packages = [
+    "io.github.kolunmi.Bazaar"
+    "md.obsidian.Obsidian"
+    "org.mozilla.firefox"
+    "com.valvesoftware.Steam"
+    "io.missioncenter.MissionCenter"
+    "com.github.Matoking.protontricks"
+  ];
+  services.flatpak.overrides = {
+    global = {
+      # Force Wayland by default
+      Context.sockets = ["wayland" "!x11" "!fallback-x11"];
+
+      Environment = {
+        # Fix un-themed cursor in some Wayland apps
+        XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
+      };
+    };
   };
 
   # Virtualization
