@@ -29,7 +29,6 @@
     nil
     nixfmt
     vscode
-    obsidian
   ];
 
   # Programs
