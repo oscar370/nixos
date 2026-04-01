@@ -90,18 +90,11 @@
   # System Packages
   environment.systemPackages = with pkgs; [
     docker-compose
-    mission-center
   ];
 
   # Programs
   programs.ssh.enableAskPassword = false;
   programs.gamemode.enable = true;
-  programs.firefox.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
 
   # Services
   services.printing.enable = false;
