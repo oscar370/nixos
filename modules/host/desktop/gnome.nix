@@ -13,6 +13,7 @@
   environment.systemPackages = with pkgs; [
     gnome-tweaks
     sushi
+    morewaita-icon-theme
   ];
 
   # Remove GNOME apps
@@ -35,5 +36,6 @@
     gnome-music
     epiphany
     seahorse
+    gnome-software
   ];
 }

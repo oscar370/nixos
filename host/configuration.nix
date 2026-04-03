@@ -30,8 +30,8 @@
   services.xserver.enable = true;
   imports = [
     # ../modules/host/desktop/cosmic.nix
+    # ../modules/host/services/timers.nix
     ../modules/host/desktop/gnome.nix
-    ../modules/host/services/timers.nix
     ../modules/host/programs/nix-ld.nix
   ];
 
@@ -80,6 +80,24 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.extraConfig = {
+      "10-disable-suspension" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [
+              {
+                "node.name" = "~alsa_output.*";
+              }
+            ];
+            actions = {
+              update-props = {
+                "session.suspend-on-idle" = false;
+              };
+            };
+          }
+        ];
+      };
+    };
   };
 
   # Hardware
@@ -115,18 +133,8 @@
     "com.valvesoftware.Steam"
     "io.missioncenter.MissionCenter"
     "com.github.Matoking.protontricks"
+    "com.github.tchx84.Flatseal"
   ];
-  services.flatpak.overrides = {
-    global = {
-      # Force Wayland by default
-      Context.sockets = ["wayland" "!x11" "!fallback-x11"];
-
-      Environment = {
-        # Fix un-themed cursor in some Wayland apps
-        XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
-      };
-    };
-  };
 
   # Virtualization
   virtualisation.docker = {
