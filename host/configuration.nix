@@ -30,8 +30,8 @@
   services.xserver.enable = true;
   imports = [
     # ../modules/host/desktop/cosmic.nix
-    # ../modules/host/services/timers.nix
     ../modules/host/desktop/gnome.nix
+    ../modules/host/services/timers.nix
     ../modules/host/programs/nix-ld.nix
   ];
 
@@ -80,24 +80,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    wireplumber.extraConfig = {
-      "10-disable-suspension" = {
-        "monitor.alsa.rules" = [
-          {
-            matches = [
-              {
-                "node.name" = "~alsa_output.*";
-              }
-            ];
-            actions = {
-              update-props = {
-                "session.suspend-on-idle" = false;
-              };
-            };
-          }
-        ];
-      };
-    };
   };
 
   # Hardware
@@ -125,6 +107,7 @@
     configDir = "/home/oscar/.config/syncthing";
   };
 
+  # Flatpaks
   services.flatpak.enable = true;
   services.flatpak.packages = [
     "io.github.kolunmi.Bazaar"
@@ -135,6 +118,10 @@
     "com.github.Matoking.protontricks"
     "com.github.tchx84.Flatseal"
   ];
+  services.flatpak.update.auto = {
+    enable = true;
+    onCalendar = "weekly"; # Default value
+  };
 
   # Virtualization
   virtualisation.docker = {
