@@ -12,8 +12,12 @@
   # Install programs
   environment.systemPackages = with pkgs; [
     gnome-tweaks
-    sushi
     morewaita-icon-theme
+    ffmpegthumbnailer
+  ];
+
+  environment.pathsToLink = [
+    "share/thumbnailers"
   ];
 
   # Remove GNOME apps
