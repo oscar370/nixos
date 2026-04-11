@@ -6,13 +6,13 @@
 git clone https://github.com/oscar370/nixos.git ~/.config/nixos && cd ~/.config/nixos
 ```
 
-### Run script `setupHardwareConfig.sh` to copy your hardware configuration
+### Run script `setup-hardware-config.sh` to copy your hardware configuration
 
 ```bash
-chmod +x ./setupHardwareConfig.sh && ./setupHardwareConfig.sh
+chmod +x ./setup-hardware-config.sh && ./setup-hardware-config.sh
 ```
 
-> If you change your hardware (including changing the mounting of external drives), you have to regenerate the file with `sudo nixos-generate-config`. You can read more [here](https://wiki.nixos.org/wiki/Nixos-generate-config).
+> If you change your hardware (including changing the mounting of external drives), run the script again. You can read more [here](https://wiki.nixos.org/wiki/Nixos-generate-config).
 
 ### Configure the files to your liking (username, packages, etc.)
 
