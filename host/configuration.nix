@@ -31,7 +31,7 @@
   imports = [
     # ../modules/host/desktop/cosmic.nix
     ../modules/host/desktop/gnome.nix
-    ../modules/host/services/timers.nix
+    # ../modules/host/services/timers.nix
     ../modules/host/programs/nix-ld.nix
   ];
 
@@ -81,6 +81,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  hardware.alsa.enablePersistence = true;
 
   # Hardware
   hardware.bluetooth.enable = true;
@@ -116,7 +117,7 @@
     "com.valvesoftware.Steam"
     "io.missioncenter.MissionCenter"
     "com.github.Matoking.protontricks"
-    "com.github.tchx84.Flatseal"
+    "com.vysp3r.ProtonPlus"
   ];
   services.flatpak.update.auto = {
     enable = true;
