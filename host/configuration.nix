@@ -15,6 +15,9 @@
   boot.kernelParams = [
     "video=HDMI-A-2:1920x1080@73"
   ];
+  boot.extraModprobeConfig = ''
+    options snd_hda_intel power_save=0 power_save_controller=N
+  '';
 
   # Zram
   zramSwap.enable = true;
@@ -81,10 +84,28 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  hardware.alsa.enablePersistence = true;
+  services.pipewire.wireplumber.extraConfig."10-disable-suspend" = {
+    "monitor.alsa.rules" = [
+      {
+        matches = [
+          { "node.name" = "~alsa_output.*"; }
+          { "node.name" = "~alsa_input.*"; }
+        ];
+        actions = {
+          update-props = {
+            "session.suspend-on-idle" = false;
+          };
+        };
+      }
+    ];
+  };
 
   # Hardware
   hardware.bluetooth.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
   # Enable overclocking on AMD
   hardware.amdgpu.overdrive.enable = true;
 
@@ -96,6 +117,11 @@
   # Programs
   programs.ssh.enableAskPassword = false;
   programs.gamemode.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
 
   # Services
   services.printing.enable = false;
@@ -114,7 +140,6 @@
     "io.github.kolunmi.Bazaar"
     "md.obsidian.Obsidian"
     "org.mozilla.firefox"
-    "com.valvesoftware.Steam"
     "io.missioncenter.MissionCenter"
     "com.github.Matoking.protontricks"
     "com.vysp3r.ProtonPlus"
