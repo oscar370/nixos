@@ -112,6 +112,7 @@
   # System Packages
   environment.systemPackages = with pkgs; [
     docker-compose
+    xhost
   ];
 
   # Programs
