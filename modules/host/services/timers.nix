@@ -19,7 +19,7 @@
         fi
       done
 
-      ${pkgs.systemd}/bin/shutdown +5 "Apagado programado por el sistema (22:30)"
+      ${pkgs.systemd}/bin/shutdown +5 "Apagado programado por el sistema"
     '';
   };
 

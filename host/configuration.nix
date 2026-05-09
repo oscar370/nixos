@@ -34,7 +34,7 @@
   imports = [
     # ../modules/host/desktop/cosmic.nix
     ../modules/host/desktop/gnome.nix
-    # ../modules/host/services/timers.nix
+    ../modules/host/services/timers.nix
     ../modules/host/programs/nix-ld.nix
   ];
 
@@ -113,6 +113,7 @@
   environment.systemPackages = with pkgs; [
     docker-compose
     xhost
+    pulseaudio
   ];
 
   # Programs
