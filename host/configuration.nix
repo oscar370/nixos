@@ -12,9 +12,6 @@
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;
   };
-  boot.kernelParams = [
-    "video=HDMI-A-2:1920x1080@73"
-  ];
   boot.extraModprobeConfig = ''
     options snd_hda_intel power_save=0 power_save_controller=N
   '';
@@ -34,7 +31,7 @@
   imports = [
     # ../modules/host/desktop/cosmic.nix
     ../modules/host/desktop/gnome.nix
-    ../modules/host/services/timers.nix
+    # ../modules/host/services/timers.nix
     ../modules/host/programs/nix-ld.nix
   ];
 
@@ -84,21 +81,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  services.pipewire.wireplumber.extraConfig."10-disable-suspend" = {
-    "monitor.alsa.rules" = [
-      {
-        matches = [
-          { "node.name" = "~alsa_output.*"; }
-          { "node.name" = "~alsa_input.*"; }
-        ];
-        actions = {
-          update-props = {
-            "session.suspend-on-idle" = false;
-          };
-        };
-      }
-    ];
-  };
 
   # Hardware
   hardware.bluetooth.enable = true;
@@ -119,22 +101,9 @@
   # Programs
   programs.ssh.enableAskPassword = false;
   programs.gamemode.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
 
   # Services
   services.printing.enable = false;
-  services.lact.enable = true;
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true;
-    user = "oscar";
-    group = "users";
-    configDir = "/home/oscar/.config/syncthing";
-  };
 
   # Flatpaks
   services.flatpak.enable = true;
@@ -145,6 +114,9 @@
     "io.missioncenter.MissionCenter"
     "com.github.Matoking.protontricks"
     "com.vysp3r.ProtonPlus"
+    "com.valvesoftware.Steam"
+    "io.github.ilya_zlobintsev.LACT"
+    "com.github.zocker_160.SyncThingy"
   ];
   services.flatpak.update.auto = {
     enable = true;
