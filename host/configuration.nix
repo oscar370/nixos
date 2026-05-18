@@ -2,11 +2,12 @@
   config,
   inputs,
   pkgs,
+  lib,
   ...
 }:
 {
   # Boot
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl = {
@@ -107,6 +108,12 @@
 
   # Flatpaks
   services.flatpak.enable = true;
+  services.flatpak.remotes = lib.mkOptionDefault [
+    {
+      name = "flathub-beta";
+      location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
+    }
+  ];
   services.flatpak.packages = [
     "io.github.kolunmi.Bazaar"
     "md.obsidian.Obsidian"
