@@ -25,11 +25,12 @@
   # };
 
   # User Packages
-  # home.packages = with pkgs; [
-  #   nil
-  #   nixfmt
-  #   vscode
-  # ];
+  home.packages = with pkgs; [
+    nil
+    nixd
+    nixfmt
+    zed-editor
+  ];
 
   # Programs
   programs.home-manager.enable = true;
