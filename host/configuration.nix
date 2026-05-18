@@ -117,6 +117,7 @@
     "com.valvesoftware.Steam"
     "io.github.ilya_zlobintsev.LACT"
     "com.github.zocker_160.SyncThingy"
+    "dev.zed.Zed"
   ];
   services.flatpak.update.auto = {
     enable = true;
