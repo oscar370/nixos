@@ -28,9 +28,9 @@
       color-scheme = "prefer-dark";
     };
 
-    "org/gnome/desktop/peripherals/mouse" = {
-      accel-profile = "flat";
-    };
+    # "org/gnome/desktop/peripherals/mouse" = {
+    #  accel-profile = "flat";
+    # };
 
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
