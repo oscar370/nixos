@@ -43,6 +43,12 @@
       };
     };
   };
+  programs.gh = {
+    enable = true;
+    gitCredentialHelper = {
+      enable = true;
+    };
+  };
 
   # Bash Configuration
   programs.bash = {
