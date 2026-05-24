@@ -39,7 +39,7 @@
     settings = {
       user = {
         name = "oscar370";
-        email = "oscar.dga@outlook.com";
+        email = "57201580+oscar370@users.noreply.github.com";
       };
     };
   };

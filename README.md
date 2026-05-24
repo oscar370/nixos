@@ -1,5 +1,11 @@
 ## Install
 
+### Setup github
+
+```bash
+nix-shell -p git
+```
+
 ### Clone or fork the repository to `~/.config/`
 
 ```bash

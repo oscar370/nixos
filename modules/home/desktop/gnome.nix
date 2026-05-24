@@ -17,7 +17,7 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = with pkgs.gnomeExtensions; [
-        paperwm.extensionUuid
+        # paperwm.extensionUuid
         appindicator.extensionUuid
         user-themes.extensionUuid
       ];
@@ -28,9 +28,9 @@
       color-scheme = "prefer-dark";
     };
 
-    # "org/gnome/desktop/peripherals/mouse" = {
-    #  accel-profile = "flat";
-    # };
+    "org/gnome/desktop/peripherals/mouse" = {
+      accel-profile = "flat";
+    };
 
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
@@ -57,16 +57,16 @@
       binding = "<Super>t";
     };
 
-    "org/gnome/shell/extensions/paperwm/keybindings" = {
-      take-window = [ "<Super>w" ];
-    };
+    #"org/gnome/shell/extensions/paperwm/keybindings" = {
+    #  take-window = [ "<Super>w" ];
+    #};
 
-    "org/gnome/shell/extensions/paperwm" = {
-      disable-topbar-styling = true;
-      show-focus-mode-icon = false;
-      show-open-position-icon = false;
-      show-window-position-bar = false;
-      show-workspace-indicator = false;
-    };
+    #"org/gnome/shell/extensions/paperwm" = {
+    #  disable-topbar-styling = true;
+    #  show-focus-mode-icon = false;
+    #  show-open-position-icon = false;
+    #  show-window-position-bar = false;
+    #  show-workspace-indicator = false;
+    #};
   };
 }

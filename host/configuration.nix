@@ -95,8 +95,7 @@
   # System Packages
   environment.systemPackages = with pkgs; [
     docker-compose
-    xhost
-    pulseaudio
+    direnv
   ];
 
   # Programs
@@ -108,12 +107,6 @@
 
   # Flatpaks
   services.flatpak.enable = true;
-  services.flatpak.remotes = lib.mkOptionDefault [
-    {
-      name = "flathub-beta";
-      location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
-    }
-  ];
   services.flatpak.packages = [
     "io.github.kolunmi.Bazaar"
     "md.obsidian.Obsidian"
