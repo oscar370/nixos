@@ -29,7 +29,7 @@
     nil
     nixd
     nixfmt
-    zed-editor
+    vscode
   ];
 
   # Programs
