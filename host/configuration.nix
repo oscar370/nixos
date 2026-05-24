@@ -104,6 +104,7 @@
 
   # Services
   services.printing.enable = false;
+  services.lact.enable = true;
 
   # Flatpaks
   services.flatpak.enable = true;
@@ -115,7 +116,6 @@
     "com.github.Matoking.protontricks"
     "com.vysp3r.ProtonPlus"
     "com.valvesoftware.Steam"
-    "io.github.ilya_zlobintsev.LACT"
     "com.github.zocker_160.SyncThingy"
   ];
   services.flatpak.update.auto = {
