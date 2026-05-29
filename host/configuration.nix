@@ -16,6 +16,9 @@
   boot.extraModprobeConfig = ''
     options snd_hda_intel power_save=0 power_save_controller=N
   '';
+  boot.kernelParams = [
+    "video=HDMI-A-2:1920x1080@70"
+  ];
 
   # Zram
   zramSwap.enable = true;
@@ -134,5 +137,5 @@
   };
 
   # State
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }
