@@ -14,7 +14,6 @@
       self,
       nixpkgs,
       home-manager,
-      nix-flatpak,
     }:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {

@@ -8,7 +8,8 @@
   # Imports
   imports = [
     # ../modules/home/desktop/cosmic.nix
-    ../modules/home/desktop/gnome.nix
+    # ../modules/home/desktop/gnome.nix
+    ../modules/home/desktop/cinnamon.nix
   ];
 
   # Replace
@@ -29,7 +30,7 @@
     nil
     nixd
     nixfmt
-    vscode
+    zed-editor
     obsidian
     firefox
     mission-center

@@ -13,11 +13,6 @@
   environment.systemPackages = with pkgs; [
     gnome-tweaks
     morewaita-icon-theme
-    ffmpegthumbnailer
-  ];
-
-  environment.pathsToLink = [
-    "share/thumbnailers"
   ];
 
   # Remove GNOME apps
