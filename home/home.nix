@@ -30,6 +30,11 @@
     nixd
     nixfmt
     vscode
+    obsidian
+    firefox
+    mission-center
+    protontricks
+    protonplus
   ];
 
   # Programs
@@ -50,6 +55,11 @@
     };
   };
 
+  # Services
+  services.syncthing = {
+    enable = true;
+  };
+
   # Bash Configuration
   programs.bash = {
     enable = true;
@@ -61,5 +71,5 @@
     };
   };
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }
