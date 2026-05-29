@@ -1,0 +1,18 @@
+{
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nixd",
+
+  "nix.serverSettings": {
+    "nil": {
+      "formatting": {
+        "command": ["nixfmt"]
+      }
+    },
+
+    "nixd": {
+      "formatting": {
+        "command": ["nixfmt"]
+      }
+    }
+  }
+}

@@ -18,7 +18,7 @@
       sleep-inactive-ac-type = "nothing";
     };
 
-    "org/cinnamon/desktop/wm/keybindings" = {
+    "org/cinnamon/desktop/keybindings/wm" = {
       close = [ "<Super>q" ];
     };
 

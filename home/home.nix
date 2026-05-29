@@ -30,7 +30,7 @@
     nil
     nixd
     nixfmt
-    zed-editor
+    vscode
     obsidian
     firefox
     mission-center
