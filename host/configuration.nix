@@ -101,27 +101,15 @@
   # Programs
   programs.ssh.enableAskPassword = false;
   programs.gamemode.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
 
   # Services
   services.printing.enable = false;
   services.lact.enable = true;
-
-  # Flatpaks
-  services.flatpak.enable = true;
-  services.flatpak.packages = [
-    "io.github.kolunmi.Bazaar"
-    "md.obsidian.Obsidian"
-    "org.mozilla.firefox"
-    "io.missioncenter.MissionCenter"
-    "com.github.Matoking.protontricks"
-    "com.vysp3r.ProtonPlus"
-    "com.valvesoftware.Steam"
-    "com.github.zocker_160.SyncThingy"
-  ];
-  services.flatpak.update.auto = {
-    enable = true;
-    onCalendar = "weekly"; # Default value
-  };
 
   # Virtualization
   virtualisation.docker = {
