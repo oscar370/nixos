@@ -15,7 +15,15 @@
     };
 
     "org/cinnamon/settings-daemon/plugins/power" = {
+      sleep-display-ac = 0;
       sleep-inactive-ac-type = "nothing";
+      power-button-action = "nothing";
+    };
+
+    "org/cinnamon/desktop/screensaver" = {
+      layout-group = 0;
+      lock-enabled = false;
+      lock-delay = 0;
     };
 
     "org/cinnamon/desktop/keybindings/wm" = {
@@ -23,12 +31,16 @@
     };
 
     "org/cinnamon/desktop/keybindings/media-keys" = {
-      screenshot = [ "<Shift><Super>s" ];
+      area-screenshot = [ "<Shift><Super>s" ];
       home = [ "<Super>e" ];
     };
 
     "org/cinnamon/desktop/keybindings" = {
       custom-list = [ "custom0" ];
+    };
+
+    "org/cinnamon/desktop/keybindings/audio" = {
+      sound-open = [ "@as []" ];
     };
 
     "org/cinnamon/desktop/keybindings/custom-keybindings/custom0" = {

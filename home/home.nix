@@ -36,6 +36,8 @@
     mission-center
     protontricks
     protonplus
+    stremio-linux-shell
+    spotify
   ];
 
   # Programs
