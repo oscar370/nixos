@@ -10,7 +10,17 @@
     gnomeExtensions.paperwm
     gnomeExtensions.appindicator
     gnomeExtensions.user-themes
+    gnomeExtensions.dash-to-panel
+    gnomeExtensions.arcmenu
   ];
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.gnome-themes-extra;
+    name = "Adwaita";
+    size = 24;
+  };
 
   # GNOME Configuration
   dconf.settings = {
@@ -20,12 +30,16 @@
         # paperwm.extensionUuid
         appindicator.extensionUuid
         user-themes.extensionUuid
+        dash-to-panel.extensionUuid
+        arc-menu.extensionUuid
       ];
     };
 
     "org/gnome/desktop/interface" = {
       accent-color = "teal";
       color-scheme = "prefer-dark";
+      cursor-theme = "Adwaita";
+      cursor-size = 24;
     };
 
     "org/gnome/desktop/peripherals/mouse" = {
@@ -57,16 +71,40 @@
       binding = "<Super>t";
     };
 
-    #"org/gnome/shell/extensions/paperwm/keybindings" = {
-    #  take-window = [ "<Super>w" ];
-    #};
+    "org/gnome/shell/extensions/paperwm/keybindings" = {
+      take-window = [ "<Super>w" ];
+    };
 
-    #"org/gnome/shell/extensions/paperwm" = {
-    #  disable-topbar-styling = true;
-    #  show-focus-mode-icon = false;
-    #  show-open-position-icon = false;
-    #  show-window-position-bar = false;
-    #  show-workspace-indicator = false;
-    #};
+    "org/gnome/shell/extensions/paperwm" = {
+      disable-topbar-styling = true;
+      show-focus-mode-icon = false;
+      show-open-position-icon = false;
+      show-window-position-bar = false;
+      show-workspace-indicator = false;
+    };
+
+    "org/gnome/shell/extensions/dash-to-panel" = {
+      appicon-margin = 0;
+      dot-position = "BOTTOM";
+      dot-style-focused = "METRO";
+      dot-style-unfocused = "DOTS";
+      panel-element-positions = ''
+        {
+          "0": [
+            {"element": "showAppsButton", "visible": false, "position": "stackedTL"},
+            {"element": "activitiesButton", "visible": true, "position": "stackedTL"},
+            {"element": "leftBox", "visible": true, "position": "stackedTL"},
+            {"element": "taskbar", "visible": true, "position": "centerMonitor"},
+            {"element": "centerBox", "visible": true, "position": "stackedBR"},
+            {"element": "rightBox", "visible": true, "position": "stackedBR"},
+            {"element": "dateMenu", "visible": true, "position": "stackedBR"},
+            {"element": "systemMenu", "visible": true, "position": "stackedBR"},
+            {"element": "desktopButton", "visible": true, "position": "stackedBR"}
+          ]
+        }
+      '';
+      panel-positions = ''{"0": "TOP"}'';
+      panel-sizes = ''{"0": 32}'';
+    };
   };
 }

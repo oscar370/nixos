@@ -8,8 +8,8 @@
   # Imports
   imports = [
     # ../modules/home/desktop/cosmic.nix
-    # ../modules/home/desktop/gnome.nix
-    ../modules/home/desktop/cinnamon.nix
+    ../modules/home/desktop/gnome.nix
+    # ../modules/home/desktop/cinnamon.nix
   ];
 
   # Replace
@@ -38,6 +38,8 @@
     protonplus
     stremio-linux-shell
     spotify
+    obs-studio
+    brave
   ];
 
   # Programs
