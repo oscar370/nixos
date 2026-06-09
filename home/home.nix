@@ -30,7 +30,7 @@
     nil
     nixd
     nixfmt
-    zed
+    zed-editor
     obsidian
     librewolf
     mission-center

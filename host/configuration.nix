@@ -17,7 +17,7 @@
     options snd_hda_intel power_save=0 power_save_controller=N
   '';
   boot.kernelParams = [
-    "video=HDMI-A-2:1920x1080@75"
+    "video=HDMI-A-2:1920x1080@73"
   ];
 
   # Zram
@@ -130,13 +130,6 @@
   # Virtualization
   virtualisation.docker = {
     enable = true;
-  };
-
-  # Automatic garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
   };
 
   # Optimize Store
