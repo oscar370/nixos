@@ -11,7 +11,6 @@
     gnomeExtensions.appindicator
     gnomeExtensions.user-themes
     gnomeExtensions.dash-to-panel
-    gnomeExtensions.arcmenu
   ];
 
   home.pointerCursor = {
@@ -27,11 +26,10 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = with pkgs.gnomeExtensions; [
-        # paperwm.extensionUuid
+        paperwm.extensionUuid
         appindicator.extensionUuid
         user-themes.extensionUuid
         dash-to-panel.extensionUuid
-        arc-menu.extensionUuid
       ];
     };
 
@@ -105,6 +103,7 @@
       '';
       panel-positions = ''{"0": "TOP"}'';
       panel-sizes = ''{"0": 32}'';
+      scroll-panel-action = "NOTHING";
     };
   };
 }

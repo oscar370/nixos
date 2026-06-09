@@ -53,12 +53,3 @@ For example, `modules/host/desktop` includes the configurations for each desktop
 
 In `configuration.nix`, remove the desktop environments you do not want to install and add the ones you do.
 The same logic applies to user modules, but they are managed from `home.nix`.
-
----
-
-**Aliases are also built for bash:**
-
-- NixOS rebuild with flake: `nixos-rebuild-switch`
-- Update flake.lock and rebuild: `nixos-rebuild-update`
-- Clean up old generations: `nixos-cleanup` _It will delete all except the current one_
-- Show available generations: `nixos-list-generations`

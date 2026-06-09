@@ -7,8 +7,8 @@
 {
   # Imports
   imports = [
-    # ../modules/home/desktop/cosmic.nix
     ../modules/home/desktop/gnome.nix
+    # ../modules/home/desktop/cosmic.nix
     # ../modules/home/desktop/cinnamon.nix
   ];
 
@@ -30,16 +30,12 @@
     nil
     nixd
     nixfmt
-    vscode
+    zed
     obsidian
-    firefox
+    librewolf
     mission-center
-    protontricks
-    protonplus
     stremio-linux-shell
     spotify
-    obs-studio
-    brave
   ];
 
   # Programs
@@ -63,17 +59,6 @@
   # Services
   services.syncthing = {
     enable = true;
-  };
-
-  # Bash Configuration
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      nixos-rebuild-switch = "sudo nixos-rebuild --flake ~/.config/nixos switch";
-      nixos-rebuild-update = "nix flake update --flake ~/.config/nixos && sudo nixos-rebuild --flake ~/.config/nixos switch";
-      nixos-cleanup = "sudo nix-collect-garbage -d";
-      nixos-list-generations = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-    };
   };
 
   home.stateVersion = "25.11";

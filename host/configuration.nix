@@ -17,7 +17,7 @@
     options snd_hda_intel power_save=0 power_save_controller=N
   '';
   boot.kernelParams = [
-    "video=HDMI-A-2:1920x1080@70"
+    "video=HDMI-A-2:1920x1080@75"
   ];
 
   # Zram
@@ -33,11 +33,11 @@
   # Desktop / X11
   services.xserver.enable = true;
   imports = [
-    # ../modules/host/desktop/cosmic.nix
     ../modules/host/desktop/gnome.nix
+    ../modules/host/programs/nix-ld.nix
+    # ../modules/host/desktop/cosmic.nix
     # ../modules/host/desktop/cinnamon.nix
     # ../modules/host/services/timers.nix
-    ../modules/host/programs/nix-ld.nix
   ];
 
   # Remove XTerm
@@ -110,12 +110,18 @@
 
   # Programs
   programs.ssh.enableAskPassword = false;
-  programs.gamemode.enable = true;
-  programs.steam = {
+  programs.nh = {
     enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 7d --keep 5";
+    flake = "/home/oscar/.config/nixos"; # Replace
   };
+  programs.gamemode.enable = true;
+  # programs.steam = {
+  #   enable = true;
+  #   remotePlay.openFirewall = true;
+  #   dedicatedServer.openFirewall = true;
+  # };
 
   # Services
   services.printing.enable = false;
