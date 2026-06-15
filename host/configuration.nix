@@ -37,7 +37,7 @@
     ../modules/host/programs/nix-ld.nix
     # ../modules/host/desktop/cosmic.nix
     # ../modules/host/desktop/cinnamon.nix
-    # ../modules/host/services/timers.nix
+    ../modules/host/services/timers.nix
   ];
 
   # Remove XTerm
@@ -117,11 +117,11 @@
     flake = "/home/oscar/.config/nixos"; # Replace
   };
   programs.gamemode.enable = true;
-  # programs.steam = {
-  #   enable = true;
-  #   remotePlay.openFirewall = true;
-  #   dedicatedServer.openFirewall = true;
-  # };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
 
   # Services
   services.printing.enable = false;

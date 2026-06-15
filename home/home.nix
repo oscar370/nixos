@@ -30,12 +30,14 @@
     nil
     nixd
     nixfmt
-    zed-editor
+    vscode
     obsidian
     librewolf
     mission-center
     stremio-linux-shell
     spotify
+    rapidraw
+    brave
   ];
 
   # Programs
@@ -54,6 +56,12 @@
     gitCredentialHelper = {
       enable = true;
     };
+  };
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-pipewire-audio-capture
+    ];
   };
 
   # Services
