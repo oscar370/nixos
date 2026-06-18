@@ -17,7 +17,7 @@
     options snd_hda_intel power_save=0 power_save_controller=N
   '';
   boot.kernelParams = [
-    "video=HDMI-A-2:1920x1080@73"
+    "video=HDMI-A-2:1920x1080@70"
   ];
 
   # Zram
@@ -37,7 +37,7 @@
     ../modules/host/programs/nix-ld.nix
     # ../modules/host/desktop/cosmic.nix
     # ../modules/host/desktop/cinnamon.nix
-    ../modules/host/services/timers.nix
+    # ../modules/host/services/timers.nix
   ];
 
   # Remove XTerm
@@ -101,6 +101,7 @@
     docker-compose
     direnv
     ffmpegthumbnailer
+    lsfg-vk-ui
   ];
 
   # Thumbnailer
@@ -113,7 +114,7 @@
   programs.nh = {
     enable = true;
     clean.enable = true;
-    clean.extraArgs = "--keep-since 7d --keep 5";
+    clean.extraArgs = "--keep 5";
     flake = "/home/oscar/.config/nixos"; # Replace
   };
   programs.gamemode.enable = true;
@@ -121,6 +122,9 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+    extraPackages = with pkgs; [
+      lsfg-vk
+    ];
   };
 
   # Services

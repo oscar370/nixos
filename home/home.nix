@@ -32,12 +32,12 @@
     nixfmt
     vscode
     obsidian
-    librewolf
     mission-center
     stremio-linux-shell
     spotify
     rapidraw
     brave
+    ungoogled-chromium
   ];
 
   # Programs
