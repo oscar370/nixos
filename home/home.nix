@@ -31,13 +31,15 @@
     nixd
     nixfmt
     vscode
+    firefox
+    ungoogled-chromium
     obsidian
     mission-center
     stremio-linux-shell
     spotify
     rapidraw
-    brave
-    ungoogled-chromium
+    prismlauncher
+    faugus-launcher
   ];
 
   # Programs
@@ -56,12 +58,6 @@
     gitCredentialHelper = {
       enable = true;
     };
-  };
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      obs-pipewire-audio-capture
-    ];
   };
 
   # Services

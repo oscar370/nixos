@@ -37,7 +37,7 @@
     ../modules/host/programs/nix-ld.nix
     # ../modules/host/desktop/cosmic.nix
     # ../modules/host/desktop/cinnamon.nix
-    # ../modules/host/services/timers.nix
+    ../modules/host/services/timers.nix
   ];
 
   # Remove XTerm
@@ -99,7 +99,6 @@
   # System Packages
   environment.systemPackages = with pkgs; [
     docker-compose
-    direnv
     ffmpegthumbnailer
     lsfg-vk-ui
   ];
@@ -125,6 +124,10 @@
     extraPackages = with pkgs; [
       lsfg-vk
     ];
+  };
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 
   # Services

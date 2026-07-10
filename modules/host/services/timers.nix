@@ -27,7 +27,6 @@
     description = "Ejecuta el aviso de apagado a las 22:25";
     timerConfig = {
       OnCalendar = "*-*-* 22:25:00";
-      Persistent = true;
       Unit = "scheduled-shutdown-warn.service";
     };
     wantedBy = [ "timers.target" ];
