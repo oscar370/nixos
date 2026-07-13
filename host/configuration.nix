@@ -33,11 +33,11 @@
   # Desktop / X11
   services.xserver.enable = true;
   imports = [
-    ../modules/host/desktop/gnome.nix
     ../modules/host/programs/nix-ld.nix
+    ../modules/host/services/timers.nix
+    ../modules/host/desktop/gnome.nix
     # ../modules/host/desktop/cosmic.nix
     # ../modules/host/desktop/cinnamon.nix
-    ../modules/host/services/timers.nix
   ];
 
   # Remove XTerm
@@ -100,7 +100,6 @@
   environment.systemPackages = with pkgs; [
     docker-compose
     ffmpegthumbnailer
-    lsfg-vk-ui
   ];
 
   # Thumbnailer
@@ -121,9 +120,6 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    extraPackages = with pkgs; [
-      lsfg-vk
-    ];
   };
   programs.direnv = {
     enable = true;

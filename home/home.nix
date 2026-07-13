@@ -32,14 +32,11 @@
     nixfmt
     vscode
     firefox
-    ungoogled-chromium
     obsidian
     mission-center
     stremio-linux-shell
     spotify
     rapidraw
-    prismlauncher
-    faugus-launcher
   ];
 
   # Programs
