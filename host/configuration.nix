@@ -35,9 +35,10 @@
   imports = [
     ../modules/host/programs/nix-ld.nix
     ../modules/host/services/timers.nix
-    ../modules/host/desktop/gnome.nix
-    # ../modules/host/desktop/cosmic.nix
+    ../modules/host/desktop/kde.nix
     # ../modules/host/desktop/cinnamon.nix
+    # ../modules/host/desktop/gnome.nix
+    # ../modules/host/desktop/cosmic.nix
   ];
 
   # Remove XTerm
@@ -60,11 +61,11 @@
   networking.networkmanager.wifi.powersave = false;
 
   # DNS config
-  networking.networkmanager.dns = "none";
-  networking.nameservers = [
-    "1.1.1.1"
-    "8.8.8.8"
-  ];
+  # networking.networkmanager.dns = "none";
+  # networking.nameservers = [
+  #   "1.1.1.1"
+  #   "8.8.8.8"
+  # ];
 
   # Users
   users.users.oscar = {
@@ -120,6 +121,9 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
   };
   programs.direnv = {
     enable = true;
@@ -129,6 +133,7 @@
   # Services
   services.printing.enable = false;
   services.lact.enable = true;
+  services.cloudflare-warp.enable = true;
 
   # Virtualization
   virtualisation.docker = {

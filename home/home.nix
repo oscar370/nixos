@@ -7,23 +7,15 @@
 {
   # Imports
   imports = [
-    ../modules/home/desktop/gnome.nix
-    # ../modules/home/desktop/cosmic.nix
+    ../modules/home/desktop/kde.nix
     # ../modules/home/desktop/cinnamon.nix
+    # ../modules/home/desktop/gnome.nix
+    # ../modules/home/desktop/cosmic.nix
   ];
 
   # Replace
   home.username = "oscar";
   home.homeDirectory = "/home/oscar";
-
-  # Sometimes your user directories (Downloads, Documents, etc.)
-  # are not configured by default.
-  # If this is the case, remove the comments.
-  #
-  # xdg.userDirs = {
-  #   enable = true;
-  #   createDirectories = true;
-  # };
 
   # User Packages
   home.packages = with pkgs; [
@@ -32,6 +24,7 @@
     nixfmt
     vscode
     firefox
+    ungoogled-chromium
     obsidian
     mission-center
     stremio-linux-shell
@@ -55,6 +48,12 @@
     gitCredentialHelper = {
       enable = true;
     };
+  };
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-pipewire-audio-capture
+    ];
   };
 
   # Services
