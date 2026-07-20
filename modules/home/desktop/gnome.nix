@@ -13,20 +13,12 @@
     gnomeExtensions.dash-to-panel
   ];
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.gnome-themes-extra;
-    name = "Adwaita";
-    size = 24;
-  };
-
   # GNOME Configuration
   dconf.settings = {
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = with pkgs.gnomeExtensions; [
-        paperwm.extensionUuid
+        # paperwm.extensionUuid
         appindicator.extensionUuid
         user-themes.extensionUuid
         dash-to-panel.extensionUuid

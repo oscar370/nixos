@@ -7,9 +7,9 @@
 {
   # Imports
   imports = [
-    ../modules/home/desktop/kde.nix
+    ../modules/home/desktop/gnome.nix
+    #../modules/home/desktop/kde.nix
     # ../modules/home/desktop/cinnamon.nix
-    # ../modules/home/desktop/gnome.nix
     # ../modules/home/desktop/cosmic.nix
   ];
 
@@ -30,6 +30,12 @@
     stremio-linux-shell
     spotify
     rapidraw
+    faugus-launcher
+    devenv
+    prismlauncher
+    zed-editor
+    qimgv
+
   ];
 
   # Programs

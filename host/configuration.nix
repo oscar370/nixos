@@ -34,10 +34,10 @@
   services.xserver.enable = true;
   imports = [
     ../modules/host/programs/nix-ld.nix
-    ../modules/host/services/timers.nix
-    ../modules/host/desktop/kde.nix
+    ../modules/host/desktop/gnome.nix
+    # ../modules/host/services/timers.nix
+    # ../modules/host/desktop/kde.nix
     # ../modules/host/desktop/cinnamon.nix
-    # ../modules/host/desktop/gnome.nix
     # ../modules/host/desktop/cosmic.nix
   ];
 
@@ -60,12 +60,12 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
 
-  # DNS config
-  # networking.networkmanager.dns = "none";
-  # networking.nameservers = [
-  #   "1.1.1.1"
-  #   "8.8.8.8"
-  # ];
+  #DNS config
+  networking.networkmanager.dns = "none";
+  networking.nameservers = [
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
 
   # Users
   users.users.oscar = {
@@ -113,7 +113,7 @@
   programs.nh = {
     enable = true;
     clean.enable = true;
-    clean.extraArgs = "--keep 5";
+    clean.extraArgs = "-k 5";
     flake = "/home/oscar/.config/nixos"; # Replace
   };
   programs.gamemode.enable = true;
@@ -121,9 +121,6 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
   };
   programs.direnv = {
     enable = true;
@@ -133,7 +130,6 @@
   # Services
   services.printing.enable = false;
   services.lact.enable = true;
-  services.cloudflare-warp.enable = true;
 
   # Virtualization
   virtualisation.docker = {

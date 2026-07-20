@@ -27,10 +27,14 @@
     };
 
     configFile = {
+      "kcminputrc"."Mouse"."PointerAccelerationProfile" = 1;
       "kcminputrc"."Mouse"."AccelerationProfile" = 1;
 
-      "powermanagementprofilesrc"."AC"."SuspendThenHibernate"."Type" = 0;
-      "powermanagementprofilesrc"."AC"."Suspend"."Type" = 0;
+      kscreenlockerrc.Daemon.Autolock = false;
+      kscreenlockerrc.Daemon.Timeout = 0;
+      ksmserverrc.General.loginMode = "emptySession";
+
+      kdeglobals.KDE.AnimationDurationFactor = 0.75;
     };
   };
 }

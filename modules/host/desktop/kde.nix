@@ -5,6 +5,16 @@
   ...
 }:
 {
+  environment.systemPackages = with pkgs; [
+    unrar
+    vlc
+  ];
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    elisa
+    discover
+  ];
+
   services = {
     desktopManager.plasma6.enable = true;
 
