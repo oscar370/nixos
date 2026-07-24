@@ -35,7 +35,7 @@
   imports = [
     ../modules/host/programs/nix-ld.nix
     ../modules/host/desktop/gnome.nix
-    # ../modules/host/services/timers.nix
+    ../modules/host/services/timers.nix
     # ../modules/host/desktop/kde.nix
     # ../modules/host/desktop/cinnamon.nix
     # ../modules/host/desktop/cosmic.nix

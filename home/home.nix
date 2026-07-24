@@ -22,7 +22,7 @@
     nil
     nixd
     nixfmt
-    vscode
+    zed-editor
     firefox
     ungoogled-chromium
     obsidian
@@ -30,12 +30,9 @@
     stremio-linux-shell
     spotify
     rapidraw
-    faugus-launcher
     devenv
     prismlauncher
-    zed-editor
     qimgv
-
   ];
 
   # Programs

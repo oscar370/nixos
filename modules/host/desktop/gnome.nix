@@ -36,5 +36,6 @@
     epiphany
     seahorse
     gnome-software
+    loupe
   ];
 }

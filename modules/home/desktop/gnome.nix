@@ -7,7 +7,7 @@
 {
   # User Packages
   home.packages = with pkgs; [
-    gnomeExtensions.paperwm
+    # gnomeExtensions.paperwm
     gnomeExtensions.appindicator
     gnomeExtensions.user-themes
     gnomeExtensions.dash-to-panel
