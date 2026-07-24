@@ -62,10 +62,19 @@
 
   #DNS config
   networking.networkmanager.dns = "none";
-  networking.nameservers = [
-    "1.1.1.1"
-    "8.8.8.8"
-  ];
+  services.dnsmasq = {
+    enable = true;
+    settings = {
+      server = [
+        "1.0.0.1"
+        "8.8.8.8"
+        "1.1.1.1"
+        "9.9.9.9"
+      ];
+      cache-size = 1000;
+    };
+  };
+  networking.nameservers = [ "127.0.0.1" ];
 
   # Users
   users.users.oscar = {
