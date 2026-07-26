@@ -8,9 +8,6 @@
   # Imports
   imports = [
     ../modules/home/desktop/gnome.nix
-    #../modules/home/desktop/kde.nix
-    # ../modules/home/desktop/cinnamon.nix
-    # ../modules/home/desktop/cosmic.nix
   ];
 
   # Replace

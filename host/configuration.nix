@@ -16,9 +16,6 @@
   boot.extraModprobeConfig = ''
     options snd_hda_intel power_save=0 power_save_controller=N
   '';
-  boot.kernelParams = [
-    "video=HDMI-A-2:1920x1080@70"
-  ];
 
   # Zram
   zramSwap.enable = true;
@@ -36,10 +33,6 @@
     ../modules/host/programs/nix-ld.nix
     ../modules/host/desktop/gnome.nix
     ../modules/host/services/timers.nix
-    # ../modules/host/boot/kernel-modules.nix
-    # ../modules/host/desktop/kde.nix
-    # ../modules/host/desktop/cinnamon.nix
-    # ../modules/host/desktop/cosmic.nix
   ];
 
   # Remove XTerm
@@ -67,8 +60,8 @@
     enable = true;
     settings = {
       server = [
-        "1.0.0.1"
         "8.8.8.8"
+        "1.0.0.1"
         "1.1.1.1"
         "9.9.9.9"
       ];
