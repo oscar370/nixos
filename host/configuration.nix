@@ -36,6 +36,7 @@
     ../modules/host/programs/nix-ld.nix
     ../modules/host/desktop/gnome.nix
     ../modules/host/services/timers.nix
+    # ../modules/host/boot/kernel-modules.nix
     # ../modules/host/desktop/kde.nix
     # ../modules/host/desktop/cinnamon.nix
     # ../modules/host/desktop/cosmic.nix
@@ -125,11 +126,12 @@
     clean.extraArgs = "-k 5";
     flake = "/home/oscar/.config/nixos"; # Replace
   };
-  programs.gamemode.enable = true;
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
   };
   programs.direnv = {
     enable = true;
