@@ -27,7 +27,7 @@ Check out the [Config section](#config) to learn about the folder structure.
 ### Compile the flake
 
 ```bash
-sudo nixos-rebuild switch --flake ~/.config/nixos
+sudo nixos-rebuild boot --flake ~/.config/nixos
 ```
 
 ## Config
