@@ -33,6 +33,7 @@
     ../modules/host/programs/nix-ld.nix
     ../modules/host/desktop/gnome.nix
     ../modules/host/services/timers.nix
+    ../modules/host/kernel/cpuid-fault-emulation.nix
   ];
 
   # Remove XTerm
@@ -60,11 +61,11 @@
     enable = true;
     settings = {
       server = [
-        "8.8.8.8"
-        "1.0.0.1"
         "1.1.1.1"
-        "9.9.9.9"
+        "8.8.8.8"
       ];
+      bogus-priv = true;
+      domain-needed = true;
       cache-size = 1000;
     };
   };
@@ -134,6 +135,10 @@
   # Services
   services.printing.enable = false;
   services.lact.enable = true;
+  services.flatpak.enable = true;
+  services.flatpak.packages = [
+    "io.github.kolunmi.Bazaar"
+  ];
 
   # Virtualization
   virtualisation.docker = {

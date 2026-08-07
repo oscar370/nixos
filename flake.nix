@@ -12,6 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       nixpkgs,
       home-manager,
       plasma-manager,
+      nix-flatpak
     }:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -35,6 +37,7 @@
               sharedModules = [ plasma-manager.homeModules.plasma-manager ];
             };
           }
+          nix-flatpak.nixosModules.nix-flatpak
           ./host/configuration.nix
           ./host/hardware-configuration.nix
         ];

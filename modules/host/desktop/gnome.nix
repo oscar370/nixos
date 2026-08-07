@@ -13,6 +13,8 @@
   environment.systemPackages = with pkgs; [
     gnome-tweaks
     morewaita-icon-theme
+    file-roller
+    unrar
   ];
 
   # Remove GNOME apps
