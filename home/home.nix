@@ -21,14 +21,12 @@
     nixfmt
     zed-editor
     firefox
-    ungoogled-chromium
     obsidian
     mission-center
     stremio-linux-shell
     spotify
     rapidraw
     devenv
-    prismlauncher
     qimgv
   ];
 
@@ -48,12 +46,6 @@
     gitCredentialHelper = {
       enable = true;
     };
-  };
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      obs-pipewire-audio-capture
-    ];
   };
 
   # Services

@@ -135,10 +135,6 @@
   # Services
   services.printing.enable = false;
   services.lact.enable = true;
-  services.flatpak.enable = true;
-  services.flatpak.packages = [
-    "io.github.kolunmi.Bazaar"
-  ];
 
   # Virtualization
   virtualisation.docker = {
@@ -148,12 +144,6 @@
   # Optimize Store
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "weekly" ];
-
-  # AppImages config
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
 
   # State
   system.stateVersion = "25.11";
