@@ -28,6 +28,7 @@
     rapidraw
     devenv
     qimgv
+    heroic
   ];
 
   # Programs
