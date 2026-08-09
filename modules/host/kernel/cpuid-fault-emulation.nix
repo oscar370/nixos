@@ -1,31 +1,32 @@
 { config, pkgs, ... }:
 
 let
-  cpuidFaultEmulation = config.boot.kernelPackages.callPackage
-    ({ stdenv, kernel }:
-      stdenv.mkDerivation {
-        pname = "cpuid_fault_emulation";
-        version = "0.1";
+  cpuidFaultEmulation = config.boot.kernelPackages.callPackage (
+    { stdenv, kernel }:
+    stdenv.mkDerivation {
+      pname = "cpuid_fault_emulation";
+      version = "0.1";
 
-        src = ./cpuid_fault_emulation;
+      src = ./cpuid_fault_emulation;
 
-        nativeBuildInputs = kernel.moduleBuildDependencies;
+      nativeBuildInputs = kernel.moduleBuildDependencies;
 
-        hardenedLDFLAGS = [ ];
+      hardenedLDFLAGS = [ ];
 
-        buildPhase = ''
-          runHook preBuild
-          make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build M=$PWD modules
-          runHook postBuild
-        '';
+      buildPhase = ''
+        runHook preBuild
+        make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build M=$PWD modules
+        runHook postBuild
+      '';
 
-        installPhase = ''
-          runHook preInstall
-          mkdir -p $out/lib/modules/${kernel.modDirVersion}/extra
-          cp *.ko $out/lib/modules/${kernel.modDirVersion}/extra/
-          runHook postInstall
-        '';
-      }) { };
+      installPhase = ''
+        runHook preInstall
+        mkdir -p $out/lib/modules/${kernel.modDirVersion}/extra
+        cp *.ko $out/lib/modules/${kernel.modDirVersion}/extra/
+        runHook postInstall
+      '';
+    }
+  ) { };
 in
 {
   boot.extraModulePackages = [ cpuidFaultEmulation ];

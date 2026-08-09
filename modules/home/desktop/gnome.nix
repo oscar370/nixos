@@ -7,7 +7,7 @@
 {
   # User Packages
   home.packages = with pkgs; [
-    # gnomeExtensions.paperwm
+    gnomeExtensions.paperwm
     gnomeExtensions.appindicator
     gnomeExtensions.user-themes
     gnomeExtensions.dash-to-panel
@@ -18,7 +18,7 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = with pkgs.gnomeExtensions; [
-        # paperwm.extensionUuid
+        paperwm.extensionUuid
         appindicator.extensionUuid
         user-themes.extensionUuid
         dash-to-panel.extensionUuid
