@@ -32,7 +32,7 @@
   imports = [
     ../modules/host/programs/nix-ld.nix
     ../modules/host/desktop/gnome.nix
-    ../modules/host/services/timers.nix
+    # ../modules/host/services/timers.nix
     ../modules/host/kernel/cpuid-fault-emulation.nix
   ];
 

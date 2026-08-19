@@ -29,6 +29,7 @@
     devenv
     qimgv
     heroic
+    prismlauncher
   ];
 
   # Programs
@@ -48,6 +49,7 @@
       enable = true;
     };
   };
+  programs.aria2.enable = true;
 
   # Services
   services.syncthing = {
