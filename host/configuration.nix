@@ -120,13 +120,6 @@
     clean.extraArgs = "-k 5";
     flake = "/home/oscar/.config/nixos"; # Replace
   };
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
-  };
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -135,6 +128,25 @@
   # Services
   services.printing.enable = false;
   services.lact.enable = true;
+
+  # Flatpak
+  services.flatpak.enable = true;
+  services.flatpak.packages = [
+    "com.visualstudio.code"
+    "org.mozilla.firefox"
+    "md.obsidian.Obsidian"
+    "io.missioncenter.MissionCenter"
+    "com.stremio.Stremio"
+    "dev.diegovsky.Riff"
+    "io.github.CyberTimon.RapidRAW"
+    "com.valvesoftware.Steam"
+    "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
+  ];
+  services.flatpak.update.onActivation = true;
+  services.flatpak.update.auto = {
+    enable = true;
+    onCalendar = "weekly"; # Default value
+  };
 
   # Virtualization
   virtualisation.docker = {
