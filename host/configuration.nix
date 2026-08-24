@@ -36,7 +36,7 @@
     ../modules/host/programs/nix-ld.nix
     ../modules/host/desktop/hyprland.nix
     # ../modules/host/services/timers.nix
-    ../modules/host/kernel/cpuid-fault-emulation.nix
+    # ../modules/host/kernel/cpuid-fault-emulation.nix
   ];
 
   # Remove XTerm
