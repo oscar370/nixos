@@ -39,11 +39,13 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.oscar = ./home/home.nix; # replace with your actual username
-              sharedModules = [ plasma-manager.homeModules.plasma-manager ];
+              sharedModules = [ 
+		plasma-manager.homeModules.plasma-manager
+		caelestia-shell.homeManagerModules.default
+	      ];
             };
           }
           nix-flatpak.nixosModules.nix-flatpak
-          caelestia-shell.homeManagerModules.default
           ./host/configuration.nix
           ./host/hardware-configuration.nix
         ];

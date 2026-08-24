@@ -7,7 +7,7 @@
 {
   # Imports
   imports = [
-    ../modules/home/desktop/caelestia.nix
+    ../modules/home/desktop/noctalia.nix
   ];
 
   # Replace
