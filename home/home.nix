@@ -7,7 +7,7 @@
 {
   # Imports
   imports = [
-    ../modules/home/desktop/gnome.nix
+    ../modules/home/desktop/caelestia.nix
   ];
 
   # Replace
