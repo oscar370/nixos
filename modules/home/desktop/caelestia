@@ -1,0 +1,46 @@
+{ pkgs, ... }:
+{
+  # Caelestia
+  programs.caelestia = {
+    enable = true;
+    
+    systemd.enable = true;
+
+    settings = {
+      bar.statusIcons = [
+        { id = "lockStatus"; enabled = true; }
+        { id = "network"; enabled = true; }
+        { id = "bluetooth"; enabled = true; }
+        { id = "battery"; enabled = true; }
+      ];
+      paths.wallpaperDir = "~/Imagenes/Wallpapers";
+    };
+
+    cli.enable = true;
+  };
+
+  # Wayland config
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
+      "$mainMod" = "SUPER";
+      bind = [
+        "$mainMod, T, exec, foot"
+        "$mainMod, Q, killactive,"
+        "$mainMod, E, exec, nautilus"
+        "$mainMod, W, togglefloating,"
+      ];
+
+      env = [
+        "XDG_CURRENT_DESKTOP,Hyprland"
+        "XDG_SESSION_TYPE,wayland"
+        "QT_QPA_PLATFORM,wayland"
+      ];
+    };
+  };
+
+  home.packages = with pkgs; [
+    foot          
+    wl-clipboard
+  ];
+}
