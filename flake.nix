@@ -13,6 +13,10 @@
       inputs.home-manager.follows = "home-manager";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -21,7 +25,8 @@
       nixpkgs,
       home-manager,
       plasma-manager,
-      nix-flatpak
+      nix-flatpak,
+      caelestia-shell
     }:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -38,6 +43,7 @@
             };
           }
           nix-flatpak.nixosModules.nix-flatpak
+          caelestia-shell.homeManagerModules.default
           ./host/configuration.nix
           ./host/hardware-configuration.nix
         ];
