@@ -12,24 +12,12 @@
     wayland.enable = true;
   };
 
-  # Services
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
-
   # Portals
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
-  # Programs
-  environment.systemPackages = with pkgs; [
-    loupe
-    nautilus
-    brightnessctl
-    wireplumber
-  ];
+  # Electron apps
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
