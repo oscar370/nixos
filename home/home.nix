@@ -19,17 +19,7 @@
     nil
     nixd
     nixfmt
-    zed-editor
-    firefox
-    obsidian
-    mission-center
-    stremio-linux-shell
-    spotify
-    rapidraw
     devenv
-    qimgv
-    heroic
-    prismlauncher
   ];
 
   # Programs
@@ -49,7 +39,6 @@
       enable = true;
     };
   };
-  programs.aria2.enable = true;
 
   # Services
   services.syncthing = {
