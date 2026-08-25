@@ -145,6 +145,7 @@
   # Flatpak
   services.flatpak.enable = true;
   services.flatpak.packages = [
+    "io.github.kolunmi.Bazaar"
     "org.mozilla.firefox"
     "md.obsidian.Obsidian"
     "io.missioncenter.MissionCenter"

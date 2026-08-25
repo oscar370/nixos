@@ -16,6 +16,9 @@
 
   environment.systemPackages = with pkgs; [
     gnome-console
+    gnome-disk-utility
+    gnome-calculator
+    gnome-text-editor
     xwayland-satellite
     nautilus
     glib
