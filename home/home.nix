@@ -40,6 +40,17 @@
     };
   };
 
+  home.pointerCursor = {
+    enable = true;
+    name = "Bibata-Modern-Classic";
+    package = pkgs.bibata-cursors;
+
+    size = 16;
+
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
   # Services
   services.syncthing = {
     enable = true;

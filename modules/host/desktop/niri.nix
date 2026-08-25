@@ -13,7 +13,6 @@
 
   environment.systemPackages = with pkgs; [
     gnome-console
-    alacritty
     xwayland-satellite
     nautilus
   ];

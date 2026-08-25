@@ -28,8 +28,6 @@
     "org/gnome/desktop/interface" = {
       accent-color = "teal";
       color-scheme = "prefer-dark";
-      cursor-theme = "Adwaita";
-      cursor-size = 24;
     };
 
     "org/gnome/desktop/peripherals/mouse" = {

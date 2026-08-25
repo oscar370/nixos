@@ -69,6 +69,11 @@ output "HDMI-A-2" {
     mode "1920x1080@70.017"
 }
 
+cursor {
+    theme "Bibata-Modern-Classic"
+    size 16
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
@@ -258,6 +263,8 @@ binds {
     Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
     Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
+
+    Mod+E { spawn-sh "nautilus"; }
 
     // Audio & Brightness
     XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
