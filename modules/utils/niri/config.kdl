@@ -3,6 +3,8 @@
 // Check the wiki for a full description of the configuration:
 // https://niri-wm.github.io/niri/Configuration:-Introduction
 
+
+
 spawn-at-startup "noctalia"
 
 // Input device configuration.
@@ -521,3 +523,5 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+include "noctalia.kdl"
