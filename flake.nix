@@ -17,6 +17,7 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
   };
 
   outputs =
@@ -26,28 +27,32 @@
       home-manager,
       plasma-manager,
       nix-flatpak,
-      caelestia-shell
+      caelestia-shell,
+      noctalia,
     }:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux"; # Replace with you arch
 
         modules = [
+          nix-flatpak.nixosModules.nix-flatpak
+
+          ./host/configuration.nix
+          ./host/hardware-configuration.nix
+
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               users.oscar = ./home/home.nix; # replace with your actual username
-              sharedModules = [ 
-		plasma-manager.homeModules.plasma-manager
-		caelestia-shell.homeManagerModules.default
-	      ];
+              sharedModules = [
+                plasma-manager.homeModules.plasma-manager
+                caelestia-shell.homeManagerModules.default
+                noctalia.homeModules.default
+              ];
             };
           }
-          nix-flatpak.nixosModules.nix-flatpak
-          ./host/configuration.nix
-          ./host/hardware-configuration.nix
         ];
       };
     };

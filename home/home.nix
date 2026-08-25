@@ -16,10 +16,10 @@
 
   # User Packages
   home.packages = with pkgs; [
-    nil
     nixd
     nixfmt
     devenv
+    vscode
   ];
 
   # Programs

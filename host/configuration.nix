@@ -25,10 +25,18 @@
 
   # Nix
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
+    # Binary cache
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
+  };
 
   # Desktop / X11
   services.xserver.enable = true;
@@ -131,11 +139,12 @@
   # Services
   services.printing.enable = false;
   services.lact.enable = true;
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
 
   # Flatpak
   services.flatpak.enable = true;
   services.flatpak.packages = [
-    "com.visualstudio.code"
     "org.mozilla.firefox"
     "md.obsidian.Obsidian"
     "io.missioncenter.MissionCenter"

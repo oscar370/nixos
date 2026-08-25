@@ -23,10 +23,22 @@
 
     settings = {
       bar.statusIcons = [
-        { id = "lockStatus"; enabled = true; }
-        { id = "network"; enabled = true; }
-        { id = "bluetooth"; enabled = true; }
-        { id = "battery"; enabled = true; }
+        {
+          id = "lockStatus";
+          enabled = true;
+        }
+        {
+          id = "network";
+          enabled = true;
+        }
+        {
+          id = "bluetooth";
+          enabled = true;
+        }
+        {
+          id = "battery";
+          enabled = true;
+        }
       ];
       paths.wallpaperDir = "~/Imagenes/Wallpapers";
     };
