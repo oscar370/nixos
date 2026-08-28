@@ -5,6 +5,9 @@
   lib,
   ...
 }:
+let
+  timeZone = "America/Mexico_City";
+in
 {
   # Boot
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -51,7 +54,7 @@
   services.xserver.excludePackages = with pkgs; [ xterm ];
 
   # Localization
-  time.timeZone = "America/Mexico_City";
+  time.timeZone = timeZone;
   i18n.defaultLocale = "es_MX.UTF-8";
 
   # Console / keyboard
@@ -118,7 +121,7 @@
     ffmpegthumbnailer
   ];
 
-  # Thumbnailer
+  # Environment paths
   environment.pathsToLink = [
     "share/thumbnailers"
   ];
@@ -150,7 +153,7 @@
     "md.obsidian.Obsidian"
     "io.missioncenter.MissionCenter"
     "com.stremio.Stremio"
-    "dev.diegovsky.Riff"
+    "com.spotify.Client"
     "io.github.CyberTimon.RapidRAW"
     "com.valvesoftware.Steam"
     "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
@@ -159,6 +162,13 @@
   services.flatpak.update.auto = {
     enable = true;
     onCalendar = "weekly"; # Default value
+  };
+  services.flatpak.overrides = {
+    global = {
+      Environment = {
+        TZ = timeZone;
+      };
+    };
   };
 
   # Virtualization
