@@ -24,9 +24,9 @@
   };
 
   systemd.timers.scheduled-shutdown-warn = {
-    description = "Ejecuta el aviso de apagado a las 22:25";
+    description = "Ejecuta el aviso de apagado";
     timerConfig = {
-      OnCalendar = "*-*-* 22:25:00";
+      OnCalendar = "*-*-* 21:00:00";
       Unit = "scheduled-shutdown-warn.service";
     };
     wantedBy = [ "timers.target" ];

@@ -4,6 +4,9 @@
   lib,
   ...
 }:
+let
+  browser = "org.mozilla.firefox.desktop";
+in
 {
   # Imports
   imports = [
@@ -20,6 +23,7 @@
     nixfmt
     devenv
     vscode
+    mission-center
   ];
 
   home.pointerCursor = {
@@ -54,6 +58,17 @@
   # Services
   services.syncthing = {
     enable = true;
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = [ browser ];
+      "x-scheme-handler/http" = [ browser ];
+      "x-scheme-handler/https" = [ browser ];
+      "x-scheme-handler/about" = [ browser ];
+      "x-scheme-handler/unknown" = [ browser ];
+    };
   };
 
   home.stateVersion = "25.11";

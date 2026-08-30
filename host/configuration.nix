@@ -46,8 +46,7 @@ in
   imports = [
     ../modules/host/programs/nix-ld.nix
     ../modules/host/desktop/niri.nix
-    # ../modules/host/services/timers.nix
-    # ../modules/host/kernel/cpuid-fault-emulation.nix
+    ../modules/host/services/timers.nix
   ];
 
   # Remove XTerm
@@ -151,7 +150,6 @@ in
     "io.github.kolunmi.Bazaar"
     "org.mozilla.firefox"
     "md.obsidian.Obsidian"
-    "io.missioncenter.MissionCenter"
     "com.stremio.Stremio"
     "com.spotify.Client"
     "io.github.CyberTimon.RapidRAW"
