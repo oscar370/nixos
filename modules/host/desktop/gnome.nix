@@ -13,8 +13,6 @@
   environment.systemPackages = with pkgs; [
     gnome-tweaks
     morewaita-icon-theme
-    file-roller
-    unrar
   ];
 
   # Remove GNOME apps
@@ -39,5 +37,6 @@
     seahorse
     gnome-software
     loupe
+    showtime
   ];
 }

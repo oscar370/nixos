@@ -46,7 +46,6 @@ in
   imports = [
     ../modules/host/programs/nix-ld.nix
     ../modules/host/desktop/niri.nix
-    ../modules/host/services/timers.nix
   ];
 
   # Remove XTerm
@@ -153,6 +152,11 @@ in
     "com.stremio.Stremio"
     "com.spotify.Client"
     "io.github.CyberTimon.RapidRAW"
+    "org.freedownloadmanager.Manager"
+    "org.gnome.Loupe"
+    "org.gnome.Loupe.HEIC"
+    "org.gnome.Showtime"
+    "org.gnome.FileRoller"
     "com.valvesoftware.Steam"
     "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
   ];
