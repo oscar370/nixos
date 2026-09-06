@@ -52,11 +52,11 @@
             "~/.config/git:ro"
             "~/.ssh:ro"
           ];
+          sockets = [
+            "talk-name=org.freedesktop.Flatpak"
+            "ssh-auth"
+          ];
         };
-        sockets = [
-          "talk-name=org.freedesktop.Flatpak"
-          "ssh-auth"
-        ];
       };
     };
   };
