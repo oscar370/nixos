@@ -6,11 +6,11 @@
 }:
 {
   # User Packages
-  home.packages = with pkgs; [
-    gnomeExtensions.paperwm
-    gnomeExtensions.appindicator
-    gnomeExtensions.user-themes
-    gnomeExtensions.dash-to-panel
+  home.packages = with pkgs.gnomeExtensions; [
+    paperwm
+    appindicator
+    user-themes
+    dash-to-panel
   ];
 
   # GNOME Configuration
@@ -34,16 +34,16 @@
       accel-profile = "flat";
     };
 
-    "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-type = "nothing";
-    };
-
     "org/gnome/desktop/wm/keybindings" = {
       close = [ "<Super>q" ];
     };
 
     "org/gnome/shell/keybindings" = {
       show-screenshot-ui = [ "<Shift><Super>s" ];
+    };
+
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-type = "nothing";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -59,16 +59,16 @@
       binding = "<Super>t";
     };
 
-    "org/gnome/shell/extensions/paperwm/keybindings" = {
-      take-window = [ "<Super>w" ];
-    };
-
     "org/gnome/shell/extensions/paperwm" = {
       disable-topbar-styling = true;
       show-focus-mode-icon = false;
       show-open-position-icon = false;
       show-window-position-bar = false;
       show-workspace-indicator = false;
+    };
+
+    "org/gnome/shell/extensions/paperwm/keybindings" = {
+      take-window = [ "<Super>w" ];
     };
 
     "org/gnome/shell/extensions/dash-to-panel" = {

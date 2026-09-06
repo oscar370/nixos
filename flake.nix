@@ -10,7 +10,6 @@
     };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
   };
 
@@ -22,9 +21,15 @@
       nix-flatpak,
       noctalia,
     }:
+    let
+      username = "oscar";
+      timeZone = "America/Mexico_City";
+    in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux"; # Replace with you arch
+        system = "x86_64-linux";
+
+        specialArgs = { inherit username timeZone; };
 
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
@@ -38,10 +43,11 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "backup";
-              users.oscar = ./home/home.nix; # replace with your actual username
-              sharedModules = [
-                noctalia.homeModules.default
-              ];
+              users.${username} = ./home/home.nix;
+
+              sharedModules = [ noctalia.homeModules.default ];
+
+              extraSpecialArgs = { inherit username timeZone; };
             };
           }
         ];

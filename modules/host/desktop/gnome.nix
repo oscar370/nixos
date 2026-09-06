@@ -6,37 +6,41 @@
 }:
 {
   # GNOME
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  services = {
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
 
-  # Install programs
-  environment.systemPackages = with pkgs; [
-    gnome-tweaks
-    morewaita-icon-theme
-  ];
+  # Environment & Packages
+  environment = {
+    systemPackages = with pkgs; [
+      gnome-tweaks
+      morewaita-icon-theme
+    ];
 
-  # Remove GNOME apps
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    gnome-contacts
-    gnome-clocks
-    gnome-weather
-    gnome-maps
-    snapshot
-    simple-scan
-    gnome-characters
-    gnome-connections
-    gnome-font-viewer
-    decibels
-    baobab
-    gnome-system-monitor
-    geary
-    gnome-calendar
-    gnome-music
-    epiphany
-    seahorse
-    gnome-software
-    loupe
-    showtime
-  ];
+    # Remove GNOME default apps
+    gnome.excludePackages = with pkgs; [
+      gnome-tour
+      gnome-contacts
+      gnome-clocks
+      gnome-weather
+      gnome-maps
+      snapshot
+      simple-scan
+      gnome-characters
+      gnome-connections
+      gnome-font-viewer
+      decibels
+      baobab
+      gnome-system-monitor
+      geary
+      gnome-calendar
+      gnome-music
+      epiphany
+      seahorse
+      gnome-software
+      loupe
+      showtime
+    ];
+  };
 }

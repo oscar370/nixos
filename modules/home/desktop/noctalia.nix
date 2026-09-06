@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     adwaita-icon-theme
-    pkgs.polkit_gnome
+    polkit_gnome
   ];
 
   programs.noctalia = {
@@ -57,6 +57,7 @@
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
+
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
@@ -79,16 +80,18 @@
     };
   };
 
-  xdg.configFile."niri/config.kdl".source = ../../utils/niri/config.kdl;
+  xdg = {
+    configFile."niri/config.kdl".source = ../../utils/niri/config.kdl;
 
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
-      "text/plain" = [ "org.gnome.TextEditor.desktop" ];
-      "text/markdown" = [ "org.gnome.TextEditor.desktop" ];
-      "text/x-log" = [ "org.gnome.TextEditor.desktop" ];
-      "application/x-shellscript" = [ "org.gnome.TextEditor.desktop" ];
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+        "text/plain" = [ "org.gnome.TextEditor.desktop" ];
+        "text/markdown" = [ "org.gnome.TextEditor.desktop" ];
+        "text/x-log" = [ "org.gnome.TextEditor.desktop" ];
+        "application/x-shellscript" = [ "org.gnome.TextEditor.desktop" ];
+      };
     };
   };
 }
