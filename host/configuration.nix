@@ -57,7 +57,14 @@
 
   # Localization & Console
   time.timeZone = timeZone;
-  i18n.defaultLocale = "es_MX.UTF-8";
+  i18n = {
+    defaultLocale = "es_MX.UTF-8";
+
+    inputMethod = {
+      enable = true;
+      type = "ibus";
+    };
+  };
   console.keyMap = "es";
 
   # Networking
@@ -158,5 +165,5 @@
   virtualisation.docker.enable = true;
 
   # State
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }

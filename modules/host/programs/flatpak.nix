@@ -40,6 +40,9 @@
           TZ = timeZone;
           XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
           GTK_THEME = "Adwaita:dark";
+          GTK_IM_MODULE = "ibus";
+          QT_IM_MODULE = "ibus";
+          XMODIFIERS = "@im=ibus";
         };
       };
 

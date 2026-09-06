@@ -6,6 +6,13 @@
 
 
 spawn-at-startup "noctalia"
+spawn-at-startup "ibus-daemon" "--xim" "--replace" "--daemonize"
+
+environment {
+    GTK_IM_MODULE "ibus"
+    QT_IM_MODULE "ibus"
+    XMODIFIERS "@im=ibus"
+}
 
 // Input device configuration.
 // Find the full list of options on the wiki:
@@ -13,7 +20,7 @@ spawn-at-startup "noctalia"
 input {
     keyboard {
         xkb {
-            
+
         }
     }
 
@@ -288,7 +295,7 @@ binds {
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
-  
+
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
@@ -439,7 +446,7 @@ binds {
     Mod+BracketRight { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
-    
+
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
@@ -524,4 +531,4 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
-include "noctalia.kdl"
+include optional=true "noctalia.kdl"

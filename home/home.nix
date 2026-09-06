@@ -18,7 +18,6 @@ in
   home = {
     username = username;
     homeDirectory = "/home/${username}";
-    stateVersion = "25.11";
 
     packages = with pkgs; [
       nixd
@@ -64,6 +63,20 @@ in
 
   # XDG / MIME Types
   xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+
+      desktop = "${config.home.homeDirectory}/Escritorio";
+      documents = "${config.home.homeDirectory}/Documentos";
+      download = "${config.home.homeDirectory}/Descargas";
+      music = "${config.home.homeDirectory}/Música";
+      pictures = "${config.home.homeDirectory}/Imágenes";
+      videos = "${config.home.homeDirectory}/Vídeos";
+      templates = "${config.home.homeDirectory}/Plantillas";
+      publicShare = "${config.home.homeDirectory}/Público";
+    };
+
     mimeApps = {
       enable = true;
       defaultApplications = {
@@ -75,4 +88,6 @@ in
       };
     };
   };
+
+  home.stateVersion = "26.05";
 }
