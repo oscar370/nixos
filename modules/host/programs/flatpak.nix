@@ -38,6 +38,8 @@
       global = {
         Environment = {
           TZ = timeZone;
+          XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
+          GTK_THEME = "Adwaita:dark";
         };
       };
 
@@ -48,13 +50,15 @@
         Context = {
           filesystems = [
             "host"
-            "~/.gitconfig:ro"
-            "~/.config/git:ro"
+            "xdg-config/git:ro"
+            "home/.gitconfig:ro"
+            "xdg-config/gh"
             "~/.ssh:ro"
           ];
           sockets = [
             "talk-name=org.freedesktop.Flatpak"
             "ssh-auth"
+            "secrets"
           ];
         };
       };
