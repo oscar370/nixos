@@ -39,10 +39,21 @@
         Environment = {
           TZ = timeZone;
           XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
-          GTK_THEME = "Adwaita:dark";
           GTK_IM_MODULE = "ibus";
           QT_IM_MODULE = "ibus";
           XMODIFIERS = "@im=ibus";
+        };
+
+        Context = {
+          filesystems = [
+            "/usr/share/icons:ro"
+            "~/.icons:ro"
+            "~/.local/share/icons:ro"
+            "~/.config/gtk-3.0:ro"
+            "~/.config/gtk-4.0:ro"
+            "xdg-config/gtk-3.0:ro"
+            "xdg-config/gtk-4.0:ro"
+          ];
         };
       };
 
