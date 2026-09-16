@@ -53,6 +53,9 @@
             "~/.config/gtk-4.0:ro"
             "xdg-config/gtk-3.0:ro"
             "xdg-config/gtk-4.0:ro"
+            "/mnt"
+            "/media"
+            "/run/media"
           ];
         };
       };
