@@ -41,6 +41,7 @@
       gnome-software
       loupe
       showtime
+      file-roller
     ];
   };
 }

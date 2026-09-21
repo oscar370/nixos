@@ -11,7 +11,7 @@ in
 {
   # Imports
   imports = [
-    ../modules/home/desktop/noctalia.nix
+    ../modules/home/desktop/gnome.nix
   ];
 
   # Home Settings
@@ -87,6 +87,14 @@ in
         "x-scheme-handler/unknown" = [ browser ];
       };
     };
+
+    configFile."autostart/obsidian.desktop".text = ''
+      [Desktop Entry]
+      Type=Application
+      Name=Obsidian
+      Exec=flatpak run md.obsidian.Obsidian
+      X-GNOME-Autostart-enabled=true
+    '';
   };
 
   home.stateVersion = "26.05";

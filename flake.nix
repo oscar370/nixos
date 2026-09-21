@@ -36,7 +36,6 @@
 
           ./host/configuration.nix
           ./host/hardware-configuration.nix
-          ./modules/host/overlays/xwayland-satellite.nix
 
           home-manager.nixosModules.home-manager
           {

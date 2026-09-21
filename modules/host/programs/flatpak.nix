@@ -79,6 +79,14 @@
           ];
         };
       };
+
+      "com.usebottles.bottles" = {
+        Context = {
+          filesystems = [
+            "~/.var/app/com.valvesoftware.Steam/data/Steam"
+          ];
+        };
+      };
     };
   };
 }

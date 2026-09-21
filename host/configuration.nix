@@ -10,9 +10,10 @@
 {
   # Imports
   imports = [
-    ../modules/host/desktop/niri.nix
+    ../modules/host/desktop/gnome.nix
     ../modules/host/programs/nix-ld.nix
     ../modules/host/programs/flatpak.nix
+    ../modules/host/timers/shutdown.nix
   ];
 
   # Boot
@@ -94,6 +95,7 @@
     systemPackages = with pkgs; [
       docker-compose
       ffmpegthumbnailer
+      steam-devices-udev-rules
     ];
     pathsToLink = [ "share/thumbnailers" ];
   };
@@ -105,7 +107,7 @@
       enable = true;
       clean = {
         enable = true;
-        extraArgs = "-k 5";
+        extraArgs = "-k 3";
       };
       flake = "/home/${username}/.config/nixos";
     };
@@ -148,6 +150,7 @@
     lact.enable = true;
     power-profiles-daemon.enable = true;
     upower.enable = true;
+    languagetool.enable = true;
   };
 
   # Hardware
