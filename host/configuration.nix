@@ -14,6 +14,7 @@
     ../modules/host/programs/nix-ld.nix
     ../modules/host/programs/flatpak.nix
     ../modules/host/timers/shutdown.nix
+    ../modules/host/kernel/cpuid-fault-emulation.nix
   ];
 
   # Boot
