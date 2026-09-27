@@ -82,16 +82,5 @@
 
   xdg = {
     configFile."niri/config.kdl".source = ../../utils/niri/config.kdl;
-
-    mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
-        "text/plain" = [ "org.gnome.TextEditor.desktop" ];
-        "text/markdown" = [ "org.gnome.TextEditor.desktop" ];
-        "text/x-log" = [ "org.gnome.TextEditor.desktop" ];
-        "application/x-shellscript" = [ "org.gnome.TextEditor.desktop" ];
-      };
-    };
   };
 }

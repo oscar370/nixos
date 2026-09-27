@@ -7,6 +7,33 @@
 }:
 let
   browser = "org.mozilla.firefox.desktop";
+  textEditor = "org.gnome.TextEditor.desktop";
+
+  textTypes = [
+    "text/plain"
+    "text/markdown"
+    "text/x-log"
+    "text/csv"
+    "application/json"
+    "application/xml"
+    "text/xml"
+    "application/toml"
+    "application/x-yaml"
+    "text/x-nix"
+    "application/x-shellscript"
+    "text/x-python"
+    "text/css"
+    "text/javascript"
+    "application/javascript"
+    "text/jsx"
+    "application/x-typescript"
+    "text/x-typescript"
+    "text/tsx"
+    "text/x-csrc"
+    "text/x-chdr"
+    "text/x-c++src"
+    "text/x-csharp"
+  ];
 in
 {
   # Imports
@@ -75,6 +102,7 @@ in
       videos = "${config.home.homeDirectory}/Vídeos";
       templates = "${config.home.homeDirectory}/Plantillas";
       publicShare = "${config.home.homeDirectory}/Público";
+      projects = null;
     };
 
     mimeApps = {
@@ -85,7 +113,9 @@ in
         "x-scheme-handler/https" = [ browser ];
         "x-scheme-handler/about" = [ browser ];
         "x-scheme-handler/unknown" = [ browser ];
-      };
+      }
+      // lib.genAttrs textTypes (_: [ textEditor ]);
+
     };
   };
 

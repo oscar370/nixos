@@ -42,6 +42,7 @@
       loupe
       showtime
       file-roller
+      gnome-text-editor
     ];
   };
 }

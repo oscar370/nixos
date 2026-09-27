@@ -23,6 +23,7 @@
       "dev.zed.Zed"
       "com.valvesoftware.Steam"
       "io.github.Faugus.faugus-launcher"
+      "org.gnome.TextEditor"
     ];
 
     update = {
