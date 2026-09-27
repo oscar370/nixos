@@ -33,8 +33,8 @@ in
   boot.kernelParams = [ "clearcpuid=514" ];
 
   # Before play
-  # sudo modprobe -r kvm_amd kvm_intel kvm && sudo modprobe cpuid_fault_emulation
+  # sudo modprobe -r kvm_amd kvm && sudo modprobe cpuid_fault_emulation
 
   # After play
-  # sudo modprobe -r cpuid_fault_emulation && sudo modprobe kvm_amd
+  # sudo modprobe -r cpuid_fault_emulation && sudo modprobe kvm_amd kvm
 }
