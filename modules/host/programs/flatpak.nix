@@ -13,7 +13,6 @@
       "io.github.kolunmi.Bazaar"
       "org.mozilla.firefox"
       "md.obsidian.Obsidian"
-      "com.stremio.Stremio"
       "com.spotify.Client"
       "io.github.CyberTimon.RapidRAW"
       "org.freedownloadmanager.Manager"
@@ -23,14 +22,14 @@
       "org.gnome.FileRoller"
       "dev.zed.Zed"
       "com.valvesoftware.Steam"
-      "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
+      "io.github.Faugus.faugus-launcher"
     ];
 
     update = {
       onActivation = true;
       auto = {
         enable = true;
-        onCalendar = "weekly";
+        onCalendar = "daily";
       };
     };
 
@@ -80,10 +79,25 @@
         };
       };
 
-      "com.usebottles.bottles" = {
+      "com.valvesoftware.Steam" = {
         Context = {
           filesystems = [
-            "~/.var/app/com.valvesoftware.Steam/data/Steam"
+            "~/.var/app/io.github.Faugus.faugus-launcher/config/faugus-launcher/"
+            "~/.config/faugus-launcher/"
+          ];
+          sockets = [
+            "talk-name=org.freedesktop.Flatpak"
+          ];
+        };
+      };
+
+      "io.github.Faugus.faugus-launcher" = {
+        Context = {
+          filesystems = [
+            "~/.var/app/com.valvesoftware.Steam/"
+          ];
+          sockets = [
+            "talk-name=org.freedesktop.Flatpak"
           ];
         };
       };
