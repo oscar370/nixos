@@ -1,73 +1,54 @@
+{ pkgs, username, ... }:
 {
-  config,
-  inputs,
-  pkgs,
-  lib,
-  username,
-  timeZone,
-  ...
-}:
-{
-  # Imports
   imports = [
-    ../modules/host/desktop/gnome.nix
-    ../modules/host/programs/nix-ld.nix
-    ../modules/host/programs/flatpak.nix
-    ../modules/host/timers/shutdown.nix
-    ../modules/host/kernel/cpuid-fault-emulation.nix
+    ./hardware-configuration.nix
+    ./gnome.nix
+    ./shutdown.nix
   ];
 
   # Boot
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
+    kernel.sysctl = {
+      "vm.swappiness" = 180;
+      "vm.page-cluster" = 0;
+    };
+
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernel = {
-      sysctl = {
-        "vm.swappiness" = 10;
-      };
-    };
+
+    # Keep the HDA codec awake (avoids pops when audio starts)
     extraModprobeConfig = ''
       options snd_hda_intel power_save=0 power_save_controller=N
     '';
-    kernelParams = [ "video=HDMI-A-2:1920x1080@70" ];
   };
 
-  # Zram
   zramSwap.enable = true;
 
-  # Nix & Nixpkgs
+  # Nix
   nixpkgs.config.allowUnfree = true;
+
   nix = {
     settings = {
       experimental-features = [
         "nix-command"
         "flakes"
       ];
-      extra-substituters = [ "https://noctalia.cachix.org" ];
-      extra-trusted-public-keys = [
-        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-      ];
+      use-xdg-base-directories = true;
     };
+
     optimise = {
       automatic = true;
       dates = [ "weekly" ];
     };
   };
 
-  # Localization & Console
-  time.timeZone = timeZone;
-  i18n = {
-    defaultLocale = "es_MX.UTF-8";
-
-    inputMethod = {
-      enable = true;
-      type = "ibus";
-    };
-  };
-  console.keyMap = "es";
+  # Locale
+  time.timeZone = "America/Mexico_City";
+  i18n.defaultLocale = "es_MX.UTF-8";
+  console.useXkbConfig = true;
 
   # Networking
   networking = {
@@ -91,43 +72,40 @@
     ];
   };
 
-  # Environment
-  environment = {
-    systemPackages = with pkgs; [
-      docker-compose
-      ffmpegthumbnailer
-      steam-devices-udev-rules
-    ];
-    pathsToLink = [ "share/thumbnailers" ];
-  };
-
   # Programs
   programs = {
+    firefox.enable = true;
+    steam.enable = true;
+    nix-ld.enable = true;
     ssh.enableAskPassword = false;
-    nh = {
-      enable = true;
-      clean = {
-        enable = true;
-        extraArgs = "-k 3";
-      };
-      flake = "/home/${username}/.config/nixos";
-    };
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+    };
+
+    nh = {
+      enable = true;
+      flake = "/home/${username}/.config/nixos";
+      clean = {
+        enable = true;
+        extraArgs = "--keep 3";
+      };
     };
   };
 
   # Services
   services = {
-    xserver = {
+    xserver.xkb.layout = "es";
+
+    pipewire = {
       enable = true;
-      excludePackages = with pkgs; [ xterm ];
-      xkb = {
-        layout = "es";
-        variant = "";
-      };
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
     };
+    pulseaudio.enable = false;
+
     dnsmasq = {
       enable = true;
       settings = {
@@ -140,34 +118,25 @@
         cache-size = 1000;
       };
     };
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-    pulseaudio.enable = false;
-    printing.enable = false;
+
     lact.enable = true;
-    power-profiles-daemon.enable = true;
-    upower.enable = true;
     languagetool.enable = true;
+  };
+
+  # Video thumbnails in Nautilus
+  environment = {
+    systemPackages = [ pkgs.ffmpegthumbnailer ];
+    pathsToLink = [ "share/thumbnailers" ];
   };
 
   # Hardware
   hardware = {
     bluetooth.enable = true;
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-    amdgpu.overdrive.enable = true;
+    amdgpu.overdrive.enable = true; # required by LACT
   };
 
-  # Security & Virtualization
   security.rtkit.enable = true;
   virtualisation.docker.enable = true;
 
-  # State
   system.stateVersion = "26.05";
 }
