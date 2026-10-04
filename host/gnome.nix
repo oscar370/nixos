@@ -8,7 +8,6 @@
   environment = {
     systemPackages = with pkgs; [
       gnome-tweaks
-      morewaita-icon-theme
     ];
 
     gnome.excludePackages = with pkgs; [

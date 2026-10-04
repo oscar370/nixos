@@ -1,5 +1,27 @@
 { lib, pkgs, ... }:
+let
+  cursor = {
+    name = "Bibata-Modern-Classic";
+    package = pkgs.bibata-cursors;
+    size = 24;
+  };
+in
 {
+  home.packages = [ pkgs.morewaita-icon-theme ];
+
+  home.pointerCursor = cursor // {
+    enable = true;
+    gtk.enable = true;
+    x11.enable = true;
+    dotIcons.enable = false;
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "adwaita";
+    style.name = "adwaita-dark";
+  };
+
   # Installs and enables the extensions
   programs.gnome-shell = {
     enable = true;
@@ -16,6 +38,9 @@
     "org/gnome/desktop/interface" = {
       accent-color = "teal";
       color-scheme = "prefer-dark";
+      icon-theme = "MoreWaita";
+      cursor-theme = cursor.name;
+      cursor-size = cursor.size;
     };
 
     "org/gnome/desktop/peripherals/mouse" = {

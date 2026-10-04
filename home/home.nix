@@ -2,6 +2,7 @@
   config,
   pkgs,
   username,
+  lib,
   ...
 }:
 {
@@ -27,16 +28,6 @@
       rapidraw
       mission-center
     ];
-
-    pointerCursor = {
-      enable = true;
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-      size = 24;
-      gtk.enable = true;
-      x11.enable = true;
-      dotIcons.enable = false; # don't create ~/.icons
-    };
   };
 
   programs = {
@@ -58,6 +49,11 @@
       gitCredentialHelper.enable = true;
     };
   };
+
+  # Bash doesn't create the history directory by itself
+  home.activation.bashHistoryDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run mkdir -p "${config.xdg.stateHome}/bash"
+  '';
 
   services = {
     syncthing.enable = true;
