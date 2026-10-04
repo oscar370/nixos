@@ -17,6 +17,7 @@ let
     NPM_CONFIG_CACHE = "${cacheHome}/npm";
     NODE_REPL_HISTORY = "${stateHome}/node_repl_history";
     PYTHON_HISTORY = "${stateHome}/python_history";
+    PULSE_COOKIE = "${configHome}/pulse/cookie";
   };
 in
 {
@@ -34,6 +35,7 @@ in
       videos = "${homeDirectory}/Vídeos";
       templates = "${homeDirectory}/Plantillas";
       publicShare = "${homeDirectory}/Público";
+      projects = null;
     };
   };
 
@@ -46,4 +48,7 @@ in
   # Terminals (bash) and GUI apps started from GNOME
   home.sessionVariables = xdgVariables;
   systemd.user.sessionVariables = xdgVariables;
+
+  # ~/.Xresources -> ~/.config/X11/xresources
+  xresources.path = "${configHome}/X11/xresources";
 }
