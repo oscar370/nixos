@@ -24,7 +24,7 @@
       xdg-ninja
 
       obsidian
-      spotify
+      spotifast
       rapidraw
       mission-center
     ];
