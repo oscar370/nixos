@@ -75,7 +75,10 @@
   # Programs
   programs = {
     firefox.enable = true;
-    steam.enable = true;
+    steam = {
+      enable = true;
+      protontricks.enable = true;
+    };
     nix-ld.enable = true;
     ssh.enableAskPassword = false;
 
