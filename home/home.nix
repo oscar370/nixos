@@ -27,6 +27,7 @@
       spotifast
       rapidraw
       mission-center
+      heroic
     ];
   };
 
