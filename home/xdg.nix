@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   inherit (config.home) homeDirectory;
   inherit (config.xdg)
@@ -38,6 +38,7 @@ in
       projects = null;
     };
 
+    # Workaround: window shrinks on Wayland
     desktopEntries."dev.zed.Zed" = {
       name = "Zed";
       genericName = "Text Editor";
@@ -70,4 +71,7 @@ in
 
   # ~/.Xresources -> ~/.config/X11/xresources
   xresources.path = "${configHome}/X11/xresources";
+
+  # Proton-GE from nixpkgs, visible to Steam and to launchers that scan compatibilitytools.d
+  xdg.dataFile."Steam/compatibilitytools.d/GE-Proton".source = pkgs.proton-ge-bin.steamcompattool;
 }
