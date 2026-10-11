@@ -86,6 +86,10 @@ in
       show-open-position-icon = false;
       show-window-position-bar = false;
       show-workspace-indicator = false;
+      vertical-margin = 10;
+      vertical-margin-bottom = 10;
+      window-gap = 10;
+      selection-border-size = 6;
     };
 
     "org/gnome/shell/extensions/paperwm/keybindings" = {
@@ -98,6 +102,7 @@ in
       dot-position = "BOTTOM";
       dot-style-focused = "METRO";
       dot-style-unfocused = "DOTS";
+      isolate-workspaces = true;
       scroll-panel-action = "NOTHING";
       panel-positions = builtins.toJSON { "0" = "TOP"; };
       panel-sizes = builtins.toJSON { "0" = 32; };
