@@ -3,7 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./gnome.nix
-    ./shutdown.nix
+    #./shutdown.nix
   ];
 
   # Boot
@@ -75,12 +75,13 @@
   # Programs
   programs = {
     firefox.enable = true;
+    nix-ld.enable = true;
+    ssh.enableAskPassword = false;
+
     steam = {
       enable = true;
       protontricks.enable = true;
     };
-    nix-ld.enable = true;
-    ssh.enableAskPassword = false;
 
     direnv = {
       enable = true;
@@ -100,6 +101,9 @@
   # Services
   services = {
     xserver.xkb.layout = "es";
+    lact.enable = true;
+    languagetool.enable = true;
+    pulseaudio.enable = false;
 
     pipewire = {
       enable = true;
@@ -107,7 +111,6 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    pulseaudio.enable = false;
 
     dnsmasq = {
       enable = true;
@@ -121,9 +124,6 @@
         cache-size = 1000;
       };
     };
-
-    lact.enable = true;
-    languagetool.enable = true;
   };
 
   # Video thumbnails in Nautilus

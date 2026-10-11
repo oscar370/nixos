@@ -8,6 +8,7 @@
   environment = {
     systemPackages = with pkgs; [
       gnome-tweaks
+      gthumb
     ];
 
     gnome.excludePackages = with pkgs; [
@@ -30,6 +31,7 @@
       seahorse
       simple-scan
       snapshot
+      loupe
     ];
   };
 }
