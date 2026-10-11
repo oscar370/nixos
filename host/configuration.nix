@@ -3,7 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./gnome.nix
-    #./shutdown.nix
+    ./shutdown.nix
   ];
 
   # Boot
