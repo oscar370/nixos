@@ -7,7 +7,11 @@ let
   };
 in
 {
-  home.packages = [ pkgs.morewaita-icon-theme ];
+  home.packages = with pkgs; [
+    morewaita-icon-theme
+    gnome-tweaks
+    gthumb
+  ];
 
   home.pointerCursor = cursor // {
     enable = true;

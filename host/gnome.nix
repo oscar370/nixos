@@ -5,33 +5,27 @@
     desktopManager.gnome.enable = true;
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      gnome-tweaks
-      gthumb
-    ];
+  environment.gnome.excludePackages = with pkgs; [
+    baobab
+    decibels
+    epiphany
+    geary
+    gnome-calendar
+    gnome-characters
+    gnome-clocks
+    gnome-connections
+    gnome-contacts
+    gnome-font-viewer
+    gnome-maps
+    gnome-music
+    gnome-software
+    gnome-system-monitor
+    gnome-tour
+    gnome-weather
+    seahorse
+    simple-scan
+    snapshot
+    loupe
+  ];
 
-    gnome.excludePackages = with pkgs; [
-      baobab
-      decibels
-      epiphany
-      geary
-      gnome-calendar
-      gnome-characters
-      gnome-clocks
-      gnome-connections
-      gnome-contacts
-      gnome-font-viewer
-      gnome-maps
-      gnome-music
-      gnome-software
-      gnome-system-monitor
-      gnome-tour
-      gnome-weather
-      seahorse
-      simple-scan
-      snapshot
-      loupe
-    ];
-  };
 }
