@@ -27,7 +27,7 @@
       spotifast
       rapidraw
       mission-center
-      heroic
+      faugus-launcher
     ];
   };
 
