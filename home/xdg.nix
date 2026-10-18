@@ -37,26 +37,6 @@ in
       publicShare = "${homeDirectory}/Público";
       projects = null;
     };
-
-    # Workaround: window shrinks on Wayland
-    desktopEntries."dev.zed.Zed" = {
-      name = "Zed";
-      genericName = "Text Editor";
-      comment = "A high-performance, multiplayer code editor.";
-      exec = "env WAYLAND_DISPLAY= ZED_WINDOW_DECORATIONS=server zeditor %U";
-      icon = "zed";
-      terminal = false;
-      categories = [
-        "Utility"
-        "TextEditor"
-        "Development"
-        "IDE"
-      ];
-      mimeType = [
-        "text/plain"
-        "inode/directory"
-      ];
-    };
   };
 
   # Home Manager modules use ~/.config instead of dotfiles when they can
