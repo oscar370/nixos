@@ -30,10 +30,7 @@ in
   programs.gnome-shell = {
     enable = true;
     extensions = with pkgs.gnomeExtensions; [
-      { package = paperwm; }
       { package = appindicator; }
-      { package = user-themes; }
-      { package = dash-to-panel; }
     ];
   };
 
@@ -81,84 +78,6 @@ in
       name = "Open terminal";
       command = "kgx";
       binding = "<Super>t";
-    };
-
-    # PaperWM
-    "org/gnome/shell/extensions/paperwm" = {
-      disable-topbar-styling = true;
-      show-focus-mode-icon = false;
-      show-open-position-icon = false;
-      show-window-position-bar = false;
-      show-workspace-indicator = false;
-      vertical-margin = 10;
-      vertical-margin-bottom = 10;
-      window-gap = 10;
-      selection-border-size = 6;
-    };
-
-    "org/gnome/shell/extensions/paperwm/keybindings" = {
-      take-window = [ "<Super>w" ];
-    };
-
-    # Dash to Panel
-    "org/gnome/shell/extensions/dash-to-panel" = {
-      appicon-margin = 0;
-      dot-position = "BOTTOM";
-      dot-style-focused = "METRO";
-      dot-style-unfocused = "DOTS";
-      isolate-workspaces = true;
-      scroll-panel-action = "NOTHING";
-      panel-positions = builtins.toJSON { "0" = "TOP"; };
-      panel-sizes = builtins.toJSON { "0" = 32; };
-      panel-element-positions = builtins.toJSON {
-        "0" = [
-          {
-            element = "showAppsButton";
-            visible = false;
-            position = "stackedTL";
-          }
-          {
-            element = "activitiesButton";
-            visible = true;
-            position = "stackedTL";
-          }
-          {
-            element = "leftBox";
-            visible = true;
-            position = "stackedTL";
-          }
-          {
-            element = "taskbar";
-            visible = true;
-            position = "centerMonitor";
-          }
-          {
-            element = "centerBox";
-            visible = true;
-            position = "stackedBR";
-          }
-          {
-            element = "rightBox";
-            visible = true;
-            position = "stackedBR";
-          }
-          {
-            element = "dateMenu";
-            visible = true;
-            position = "stackedBR";
-          }
-          {
-            element = "systemMenu";
-            visible = true;
-            position = "stackedBR";
-          }
-          {
-            element = "desktopButton";
-            visible = true;
-            position = "stackedBR";
-          }
-        ];
-      };
     };
   };
 }
