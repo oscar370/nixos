@@ -3,7 +3,6 @@
   imports = [
     ./hardware-configuration.nix
     ./gnome.nix
-    ./shutdown.nix
   ];
 
   # Boot
@@ -95,6 +94,11 @@
         enable = true;
         extraArgs = "--keep 3";
       };
+    };
+
+    appimage = {
+      enable = true;
+      binfmt = true;
     };
   };
 
