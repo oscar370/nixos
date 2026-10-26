@@ -22,6 +22,7 @@
       devenv
       zed-editor
       xdg-ninja
+      opencode
 
       obsidian
       spotifast
@@ -35,6 +36,9 @@
     bash = {
       enable = true;
       historyFile = "${config.xdg.stateHome}/bash/history";
+      initExtra = ''
+        eval "$(devenv hook bash)"
+      '';
     };
 
     git = {
