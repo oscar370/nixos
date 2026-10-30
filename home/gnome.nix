@@ -31,6 +31,7 @@ in
     enable = true;
     extensions = with pkgs.gnomeExtensions; [
       { package = appindicator; }
+      { package = paperwm; }
     ];
   };
 
@@ -78,6 +79,15 @@ in
       name = "Open terminal";
       command = "kgx";
       binding = "<Super>t";
+    };
+
+    # PaperWM
+    "org/gnome/shell/extensions/paperwm" = {
+      disable-topbar-styling = true;
+      show-focus-mode-icon = false;
+      show-open-position-icon = false;
+      show-window-position-bar = false;
+      show-workspace-indicator = false;
     };
   };
 }
