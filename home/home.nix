@@ -36,9 +36,6 @@
     bash = {
       enable = true;
       historyFile = "${config.xdg.stateHome}/bash/history";
-      initExtra = ''
-        eval "$(devenv hook bash)"
-      '';
     };
 
     git = {
