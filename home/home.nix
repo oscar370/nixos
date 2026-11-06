@@ -22,7 +22,6 @@
       devenv
       zed-editor
       xdg-ninja
-      opencode
 
       obsidian
       spotifast
