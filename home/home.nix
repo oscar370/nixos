@@ -28,9 +28,6 @@
       spotifast
       rapidraw
       mission-center
-      faugus-launcher
-      brave
-      prismlauncher
     ];
   };
 
