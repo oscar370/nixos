@@ -69,6 +69,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "camera"
     ];
   };
 
@@ -77,6 +78,7 @@
     firefox.enable = true;
     nix-ld.enable = true;
     ssh.enableAskPassword = false;
+    gphoto2.enable = true;
 
     steam = {
       enable = true;
