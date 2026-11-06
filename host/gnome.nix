@@ -39,7 +39,6 @@
       seahorse
       simple-scan
       snapshot
-      loupe
     ];
   };
 }
