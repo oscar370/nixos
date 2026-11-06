@@ -10,7 +10,6 @@ in
   home.packages = with pkgs; [
     morewaita-icon-theme
     gnome-tweaks
-    gthumb
   ];
 
   home.pointerCursor = cursor // {
@@ -88,6 +87,10 @@ in
       show-open-position-icon = false;
       show-window-position-bar = false;
       show-workspace-indicator = false;
+    };
+
+    "org/gnome/shell/extensions/paperwm/keybindings" = {
+      take-window = [ "" ];
     };
   };
 }
