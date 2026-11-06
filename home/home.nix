@@ -29,6 +29,8 @@
       rapidraw
       mission-center
       faugus-launcher
+      brave
+      prismlauncher
     ];
   };
 
@@ -49,6 +51,13 @@
     gh = {
       enable = true;
       gitCredentialHelper.enable = true;
+    };
+
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-pipewire-audio-capture
+      ];
     };
   };
 
