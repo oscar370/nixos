@@ -22,6 +22,7 @@
       devenv
       zed-editor
       xdg-ninja
+      chromium
 
       obsidian
       spotifast
@@ -34,6 +35,7 @@
     bash = {
       enable = true;
       historyFile = "${config.xdg.stateHome}/bash/history";
+      shellAliases.adb = ''HOME="${config.xdg.dataHome}/android" adb'';
     };
 
     git = {
