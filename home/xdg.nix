@@ -18,6 +18,9 @@ let
     NODE_REPL_HISTORY = "${stateHome}/node_repl_history";
     PYTHON_HISTORY = "${stateHome}/python_history";
     PULSE_COOKIE = "${configHome}/pulse/cookie";
+    ANDROID_USER_HOME = "${dataHome}/android";
+    # Java prints "Picked up _JAVA_OPTIONS" on every run while this is set
+    _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${configHome}/java";
   };
 in
 {
