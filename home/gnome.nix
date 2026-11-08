@@ -58,6 +58,11 @@ in
       idle-delay = lib.hm.gvariant.mkUint32 0;
     };
 
+    # Wait longer before the "not responding" dialog (shader compilation, ENB…)
+    "org/gnome/mutter" = {
+      check-alive-timeout = lib.hm.gvariant.mkUint32 30000;
+    };
+
     # Keybindings
     "org/gnome/desktop/wm/keybindings" = {
       close = [ "<Super>q" ];
