@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./gnome.nix
+    ./flatpak.nix
     ./shutdown.nix
   ];
 
@@ -79,11 +80,6 @@
     nix-ld.enable = true;
     ssh.enableAskPassword = false;
     gphoto2.enable = true;
-
-    steam = {
-      enable = true;
-      protontricks.enable = true;
-    };
 
     direnv = {
       enable = true;
