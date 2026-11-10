@@ -21,6 +21,8 @@ let
     ANDROID_USER_HOME = "${dataHome}/android";
     # Java prints "Picked up _JAVA_OPTIONS" on every run while this is set
     _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${configHome}/java";
+    # VSCodium keeps settings and extensions here instead of ~/.vscode-oss
+    VSCODE_PORTABLE = "${dataHome}/vscodium";
   };
 in
 {
@@ -40,26 +42,6 @@ in
       publicShare = "${homeDirectory}/Público";
       projects = null;
     };
-
-    # Workaround: window shrinks on Wayland
-    desktopEntries."dev.zed.Zed" = {
-      name = "Zed";
-      genericName = "Text Editor";
-      comment = "A high-performance, multiplayer code editor.";
-      exec = "env WAYLAND_DISPLAY= ZED_WINDOW_DECORATIONS=server zeditor %U";
-      icon = "zed";
-      terminal = false;
-      categories = [
-        "Utility"
-        "TextEditor"
-        "Development"
-        "IDE"
-      ];
-      mimeType = [
-        "text/plain"
-        "inode/directory"
-      ];
-    };
   };
 
   # Home Manager modules use ~/.config instead of dotfiles when they can
@@ -77,7 +59,4 @@ in
 
   # Proton-GE from nixpkgs, visible to Steam and to launchers that scan compatibilitytools.d
   xdg.dataFile."Steam/compatibilitytools.d/GE-Proton".source = pkgs.proton-ge-bin.steamcompattool;
-  # Steam Flatpak
-  home.file.".var/app/com.valvesoftware.Steam/data/Steam/compatibilitytools.d/GE-Proton".source =
-    pkgs.proton-ge-bin.steamcompattool;
 }
