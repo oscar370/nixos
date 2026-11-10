@@ -55,6 +55,9 @@
   home.activation.bashHistoryDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     run mkdir -p "${config.xdg.stateHome}/bash"
   '';
+  home.activation.vscodiumPortableDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run mkdir -p "${config.xdg.dataHome}/vscodium"
+  '';
 
   services = {
     syncthing.enable = true;
