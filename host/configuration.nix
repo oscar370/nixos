@@ -3,7 +3,6 @@
   imports = [
     ./hardware-configuration.nix
     ./gnome.nix
-    ./flatpak.nix
     ./shutdown.nix
   ];
 
@@ -19,6 +18,8 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+
+    kernelParams = [ "video=HDMI-A-1:1920x1080@70" ];
 
     # Keep the HDA codec awake (avoids pops when audio starts)
     extraModprobeConfig = ''
@@ -98,6 +99,11 @@
     appimage = {
       enable = true;
       binfmt = true;
+    };
+
+    steam = {
+      enable = true;
+      protontricks.enable = true;
     };
   };
 
