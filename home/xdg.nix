@@ -77,4 +77,7 @@ in
 
   # Proton-GE from nixpkgs, visible to Steam and to launchers that scan compatibilitytools.d
   xdg.dataFile."Steam/compatibilitytools.d/GE-Proton".source = pkgs.proton-ge-bin.steamcompattool;
+  # Steam Flatpak
+  home.file.".var/app/com.valvesoftware.Steam/data/Steam/compatibilitytools.d/GE-Proton".source =
+    pkgs.proton-ge-bin.steamcompattool;
 }
