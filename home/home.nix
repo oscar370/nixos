@@ -20,9 +20,8 @@
       nixd
       nixfmt
       devenv
-      zed-editor
       xdg-ninja
-      chromium
+      vscodium
 
       obsidian
       spotifast
@@ -49,13 +48,6 @@
     gh = {
       enable = true;
       gitCredentialHelper.enable = true;
-    };
-
-    obs-studio = {
-      enable = true;
-      plugins = with pkgs.obs-studio-plugins; [
-        obs-pipewire-audio-capture
-      ];
     };
   };
 
