@@ -23,6 +23,7 @@ let
     _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${configHome}/java";
     # VSCodium keeps settings and extensions here instead of ~/.vscode-oss
     VSCODE_PORTABLE = "${dataHome}/vscodium";
+    VSCODE_CLI_DATA_DIR = "${dataHome}/vscodium/cli";
   };
 in
 {
