@@ -12,12 +12,16 @@
 
   environment = {
     # Codecs for Nautilus properties and GNOME media apps (H.264/H.265, AAC…)
-    systemPackages = with pkgs.gst_all_1; [
-      gst-plugins-good
-      gst-plugins-bad
-      gst-plugins-ugly
-      gst-libav
+    systemPackages = with pkgs; [
+      gst_all_1.gst-plugins-good
+      gst_all_1.gst-plugins-bad
+      gst_all_1.gst-plugins-ugly
+      gst_all_1.gst-libav
+      ffmpegthumbnailer
     ];
+
+    # Video thumbnails in Nautilus
+    pathsToLink = [ "share/thumbnailers" ];
 
     gnome.excludePackages = with pkgs; [
       baobab

@@ -143,14 +143,9 @@ in
     };
   };
 
-  environment = {
-    systemPackages = [
-      pkgs.cisco-packet-tracer_9
-      pkgs.ffmpegthumbnailer
-    ];
-    # Video thumbnails in Nautilus
-    pathsToLink = [ "share/thumbnailers" ];
-  };
+  environment.systemPackages = with pkgs; [
+    cisco-packet-tracer_9
+  ];
 
   # Hardware
   hardware = {
