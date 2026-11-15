@@ -1,4 +1,9 @@
 { pkgs, username, ... }:
+let
+  # Steam hardcodes dotfiles in $HOME (~/.steam, ~/.steampid, ~/.steampath…):
+  # give it a HOME of its own so the real one stays clean
+  steamHome = "/home/${username}/.local/share/steam-home";
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -104,6 +109,9 @@
     steam = {
       enable = true;
       protontricks.enable = true;
+      package = pkgs.steam.override {
+        extraEnv.HOME = steamHome;
+      };
     };
   };
 
@@ -135,9 +143,12 @@
     };
   };
 
-  # Video thumbnails in Nautilus
   environment = {
-    systemPackages = [ pkgs.ffmpegthumbnailer ];
+    systemPackages = [
+      pkgs.cisco-packet-tracer_9
+      pkgs.ffmpegthumbnailer
+    ];
+    # Video thumbnails in Nautilus
     pathsToLink = [ "share/thumbnailers" ];
   };
 
@@ -149,6 +160,9 @@
 
   security.rtkit.enable = true;
   virtualisation.docker.enable = true;
+
+  # The folder must exist before Steam starts
+  systemd.tmpfiles.rules = [ "d ${steamHome} 0700 ${username} users -" ];
 
   system.stateVersion = "26.05";
 }
