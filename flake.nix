@@ -8,12 +8,24 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    reel = {
+      url = "github:oscar370/reel";
+      flake = false;
+    };
+
+    paperwm-src = {
+      url = "github:paperwm/PaperWM";
+      flake = false;
+    };
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
+      reel,
+      paperwm-src,
       ...
     }:
     let
@@ -32,7 +44,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "backup";
-              extraSpecialArgs = { inherit username; };
+              extraSpecialArgs = { inherit username reel paperwm-src; };
               users.${username} = ./home/home.nix;
             };
           }
