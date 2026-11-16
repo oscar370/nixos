@@ -11,20 +11,17 @@ let
     size = 24;
   };
 
-  paperwm = pkgs.stdenvNoCC.mkDerivation {
+  # nixpkgs' gnomeExtensions.paperwm doesn't support GNOME 51 yet
+  paperwm = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "paperwm";
     version = "git";
     src = paperwm-src;
 
-    nativeBuildInputs = [
-      pkgs.glib
-      pkgs.jq
-    ];
+    nativeBuildInputs = [ pkgs.glib ];
 
     installPhase = ''
       runHook preInstall
-      uuid=$(jq -r .uuid metadata.json)
-      dest=$out/share/gnome-shell/extensions/$uuid
+      dest=$out/share/gnome-shell/extensions/${finalAttrs.passthru.extensionUuid}
       mkdir -p $dest
       cp -r . $dest
       glib-compile-schemas $dest/schemas
@@ -32,7 +29,7 @@ let
     '';
 
     passthru.extensionUuid = "paperwm@paperwm.github.com";
-  };
+  });
 
 in
 {
@@ -43,8 +40,6 @@ in
 
   home.pointerCursor = cursor // {
     enable = true;
-    gtk.enable = true;
-    x11.enable = true;
     dotIcons.enable = false;
   };
 
