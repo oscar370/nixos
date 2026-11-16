@@ -3,6 +3,7 @@
   pkgs,
   username,
   lib,
+  reel,
   ...
 }:
 {
@@ -22,11 +23,14 @@
       devenv
       xdg-ninja
       vscodium
+      opencode
 
       obsidian
       spotifast
       rapidraw
       mission-center
+
+      (callPackage "${reel}/package.nix" { })
     ];
   };
 
