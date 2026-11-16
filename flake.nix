@@ -37,6 +37,7 @@
 
         modules = [
           ./host/configuration.nix
+          ./host/gnome.nix # Desktop (system)
 
           home-manager.nixosModules.home-manager
           {
@@ -44,8 +45,11 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "backup";
-              extraSpecialArgs = { inherit username reel paperwm-src; };
-              users.${username} = ./home/home.nix;
+              extraSpecialArgs = { inherit reel paperwm-src; };
+              users.${username}.imports = [
+                ./home/home.nix
+                ./home/gnome.nix # Desktop (user)
+              ];
             };
           }
         ];
