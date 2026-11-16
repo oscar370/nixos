@@ -1,10 +1,39 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  paperwm-src,
+  ...
+}:
 let
   cursor = {
     name = "Bibata-Modern-Classic";
     package = pkgs.bibata-cursors;
     size = 24;
   };
+
+  paperwm = pkgs.stdenvNoCC.mkDerivation {
+    pname = "paperwm";
+    version = "git";
+    src = paperwm-src;
+
+    nativeBuildInputs = [
+      pkgs.glib
+      pkgs.jq
+    ];
+
+    installPhase = ''
+      runHook preInstall
+      uuid=$(jq -r .uuid metadata.json)
+      dest=$out/share/gnome-shell/extensions/$uuid
+      mkdir -p $dest
+      cp -r . $dest
+      glib-compile-schemas $dest/schemas
+      runHook postInstall
+    '';
+
+    passthru.extensionUuid = "paperwm@paperwm.github.com";
+  };
+
 in
 {
   home.packages = with pkgs; [
@@ -28,8 +57,8 @@ in
   # Installs and enables the extensions
   programs.gnome-shell = {
     enable = true;
-    extensions = with pkgs.gnomeExtensions; [
-      { package = appindicator; }
+    extensions = with pkgs; [
+      { package = gnomeExtensions.appindicator; }
       { package = paperwm; }
     ];
   };
