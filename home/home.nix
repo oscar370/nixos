@@ -1,20 +1,8 @@
+{ pkgs, reel, ... }:
 {
-  config,
-  pkgs,
-  username,
-  lib,
-  reel,
-  ...
-}:
-{
-  imports = [
-    ./gnome.nix
-    ./xdg.nix
-  ];
+  imports = [ ./xdg.nix ];
 
   home = {
-    inherit username;
-    homeDirectory = "/home/${username}";
     stateVersion = "26.05";
 
     packages = with pkgs; [
@@ -35,11 +23,7 @@
   };
 
   programs = {
-    bash = {
-      enable = true;
-      historyFile = "${config.xdg.stateHome}/bash/history";
-      shellAliases.adb = ''HOME="${config.xdg.dataHome}/android" adb'';
-    };
+    bash.enable = true;
 
     git = {
       enable = true;
@@ -54,14 +38,6 @@
       gitCredentialHelper.enable = true;
     };
   };
-
-  # Bash doesn't create the history directory by itself
-  home.activation.bashHistoryDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run mkdir -p "${config.xdg.stateHome}/bash"
-  '';
-  home.activation.vscodiumPortableDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run mkdir -p "${config.xdg.dataHome}/vscodium"
-  '';
 
   services = {
     syncthing.enable = true;

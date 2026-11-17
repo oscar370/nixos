@@ -48,15 +48,21 @@ in
   # Home Manager modules use ~/.config instead of dotfiles when they can
   home.preferXdgDirectories = true;
 
-  # ~/.gtkrc-2.0 -> ~/.config/gtk-2.0/gtkrc
-  gtk.gtk2.configLocation = "${configHome}/gtk-2.0/gtkrc";
-
-  # Terminals (bash) and GUI apps started from GNOME
+  # Terminals (bash) and GUI apps started from the desktop
   home.sessionVariables = xdgVariables;
   systemd.user.sessionVariables = xdgVariables;
 
-  # ~/.Xresources -> ~/.config/X11/xresources
-  xresources.path = "${configHome}/X11/xresources";
+  programs.bash = {
+    historyFile = "${stateHome}/bash/history";
+    # adb ignores ANDROID_USER_HOME for its keys
+    shellAliases.adb = ''HOME="${dataHome}/android" adb'';
+  };
+
+  # Directories the programs above expect but don't create themselves
+  systemd.user.tmpfiles.rules = [
+    "d ${stateHome}/bash - - - -"
+    "d ${dataHome}/vscodium - - - -"
+  ];
 
   # Proton-GE from nixpkgs, visible to Steam and to launchers that scan compatibilitytools.d
   xdg.dataFile."Steam/compatibilitytools.d/GE-Proton".source = pkgs.proton-ge-bin.steamcompattool;
