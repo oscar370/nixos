@@ -7,7 +7,6 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ./gnome.nix
     ./shutdown.nix
   ];
 
@@ -60,7 +59,6 @@ in
   # Networking
   networking = {
     hostName = "nixos";
-    nameservers = [ "127.0.0.1" ];
     networkmanager = {
       enable = true;
       dns = "none";
