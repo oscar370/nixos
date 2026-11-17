@@ -20,9 +20,6 @@
       ffmpegthumbnailer
     ];
 
-    # Video thumbnails in Nautilus
-    pathsToLink = [ "share/thumbnailers" ];
-
     gnome.excludePackages = with pkgs; [
       baobab
       decibels
