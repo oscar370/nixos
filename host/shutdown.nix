@@ -9,17 +9,17 @@
     };
   };
 
-  # Warn 15 minutes before
+  # Warn 5 minutes before
   systemd.user.timers.shutdown-warn = {
     wantedBy = [ "timers.target" ];
-    timerConfig.OnCalendar = "19:45";
+    timerConfig.OnCalendar = "19:55";
   };
 
   systemd.user.services.shutdown-warn = {
     serviceConfig.Type = "oneshot";
     script = ''
       ${pkgs.libnotify}/bin/notify-send -u critical "Cierre del día" \
-        "El dispositivo se apagará en 15 minutos"
+        "El dispositivo se apagará en 5 minutos"
     '';
   };
 }
