@@ -67,6 +67,7 @@
     flavor = "mocha";
     accent = "lavender";
     firefox.force = true;
+    zed.icons.enable = false;
   };
 
   home.stateVersion = "26.05";
