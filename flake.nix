@@ -2,20 +2,15 @@
   description = "My NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     reel = {
       url = "github:oscar370/reel";
-      flake = false;
-    };
-
-    paperwm-src = {
-      url = "github:paperwm/PaperWM";
       flake = false;
     };
   };
@@ -25,7 +20,6 @@
       nixpkgs,
       home-manager,
       reel,
-      paperwm-src,
       ...
     }:
     let
@@ -45,7 +39,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "backup";
-              extraSpecialArgs = { inherit reel paperwm-src; };
+              extraSpecialArgs = { inherit reel; };
               users.${username}.imports = [
                 ./home/home.nix
                 ./home/gnome.nix # Desktop (user)
