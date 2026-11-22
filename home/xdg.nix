@@ -56,8 +56,9 @@ in
 
   # Directories the programs above expect but don't create themselves
   systemd.user.tmpfiles.rules = [
-    "d ${stateHome}/bash - - - -"
-  ];
+  "d ${stateHome}/bash - - - -"
+  "d ${dataHome}/steam-home 0700 - - -"
+];
 
   # Proton-GE from nixpkgs, visible to Steam and to launchers that scan compatibilitytools.d
   xdg.dataFile."Steam/compatibilitytools.d/${pkgs.proton-ge-bin.version}".source =
