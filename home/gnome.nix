@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  paperwm-src,
   ...
 }:
 let
@@ -10,27 +9,6 @@ let
     package = pkgs.bibata-cursors;
     size = 24;
   };
-
-  # nixpkgs' gnomeExtensions.paperwm doesn't support GNOME 51 yet
-  paperwm = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
-    pname = "paperwm";
-    version = "git";
-    src = paperwm-src;
-
-    nativeBuildInputs = [ pkgs.glib ];
-
-    installPhase = ''
-      runHook preInstall
-      dest=$out/share/gnome-shell/extensions/${finalAttrs.passthru.extensionUuid}
-      mkdir -p $dest
-      cp -r . $dest
-      glib-compile-schemas $dest/schemas
-      runHook postInstall
-    '';
-
-    passthru.extensionUuid = "paperwm@paperwm.github.com";
-  });
-
 in
 {
   home.packages = with pkgs; [
@@ -52,10 +30,16 @@ in
   # Installs and enables the extensions
   programs.gnome-shell = {
     enable = true;
-    extensions = with pkgs; [
-      { package = gnomeExtensions.appindicator; }
+    extensions = with pkgs.gnomeExtensions; [
+      { package = appindicator; }
       { package = paperwm; }
     ];
+  };
+
+  # Nautilus' wrapper only bundles basic GStreamer plugins; point every GNOME app
+  # at the system ones so the audio/video properties can read MP4 (H.264/AAC)
+  systemd.user.sessionVariables = {
+    GST_PLUGIN_SYSTEM_PATH_1_0 = "/run/current-system/sw/lib/gstreamer-1.0";
   };
 
   dconf.settings = {
