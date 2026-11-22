@@ -9,7 +9,9 @@ nix-shell -p git
 ### Clone or fork the repository to `~/.config/`
 
 ```bash
-git clone https://github.com/oscar370/nixos.git ~/.config/nixos && cd ~/.config/nixos
+export FLAKE_PATH="~/.config/nixos"
+git clone https://github.com/oscar370/nixos.git ${FLAKE_PATH}
+cd ${FLAKE_PATH}
 ```
 
 ### Run `setup-hardware-config.sh` to copy your hardware configuration
@@ -27,7 +29,7 @@ Check out the [Config section](#config) to learn about the folder structure.
 ### Build the flake
 
 ```bash
-sudo nixos-rebuild boot --flake ~/.config/nixos
+sudo nixos-rebuild boot --flake ${FLAKE_PATH}
 ```
 
 ## Config
