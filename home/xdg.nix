@@ -65,5 +65,6 @@ in
   ];
 
   # Proton-GE from nixpkgs, visible to Steam and to launchers that scan compatibilitytools.d
-  xdg.dataFile."Steam/compatibilitytools.d/GE-Proton".source = pkgs.proton-ge-bin.steamcompattool;
+  xdg.dataFile."Steam/compatibilitytools.d/${pkgs.proton-ge-bin.version}".source =
+    pkgs.proton-ge-bin.steamcompattool;
 }
