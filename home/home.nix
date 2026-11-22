@@ -10,11 +10,11 @@
       nixfmt
       devenv
       xdg-ninja
-      vscodium
+      zed-editor
       opencode
 
       obsidian
-      spotifast
+      spotify
       rapidraw
       mission-center
 
