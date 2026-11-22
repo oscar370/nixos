@@ -23,8 +23,6 @@ in
       efi.canTouchEfiVariables = true;
     };
 
-    kernelParams = [ "video=HDMI-A-1:1920x1080@70" ];
-
     # Keep the HDA codec awake (avoids pops when audio starts)
     extraModprobeConfig = ''
       options snd_hda_intel power_save=0 power_save_controller=N
