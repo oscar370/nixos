@@ -1,19 +1,9 @@
-{ pkgs, username, ... }:
+{ pkgs, ... }:
 {
   services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
-
-  # Workaround: at boot, Home Manager applies dconf.settings inside a temporary
-  # D-Bus with no XDG_RUNTIME_DIR; GIO starts gvfsd there, which outlives the
-  # activation and mounts ~/.gvfs. dconf doesn't need gvfs.
-  systemd.services."home-manager-${username}".environment.GIO_USE_VFS = "local";
-
-  # Nautilus' wrapper only bundles basic GStreamer plugins; point every GNOME app
-  # at the system ones so the audio/video properties can read MP4 (H.264/AAC)
-  systemd.user.settings.Manager.DefaultEnvironment =
-    "GST_PLUGIN_SYSTEM_PATH_1_0=/run/current-system/sw/lib/gstreamer-1.0";
 
   environment = {
     # Codecs for Nautilus properties and GNOME media apps (H.264/H.265, AAC…)
