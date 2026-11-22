@@ -21,12 +21,6 @@ in
     dotIcons.enable = false;
   };
 
-  qt = {
-    enable = true;
-    platformTheme.name = "adwaita";
-    style.name = "adwaita-dark";
-  };
-
   # Installs and enables the extensions
   programs.gnome-shell = {
     enable = true;

@@ -81,7 +81,6 @@ in
 
   # Programs
   programs = {
-    firefox.enable = true;
     nix-ld.enable = true;
     ssh.enableAskPassword = false;
     gphoto2.enable = true;
@@ -145,6 +144,13 @@ in
   environment.systemPackages = with pkgs; [
     distrobox
   ];
+
+  # Catppuccin
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    accent = "lavender";
+  };
 
   # Hardware
   hardware = {
