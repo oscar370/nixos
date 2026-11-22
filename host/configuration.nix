@@ -140,7 +140,7 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    cisco-packet-tracer_9
+    distrobox
   ];
 
   # Hardware
