@@ -154,9 +154,5 @@ in
 
   security.rtkit.enable = true;
   virtualisation.docker.enable = true;
-
-  # The folder must exist before Steam starts
-  systemd.tmpfiles.rules = [ "d ${steamHome} 0700 ${username} users -" ];
-
   system.stateVersion = "26.05";
 }
